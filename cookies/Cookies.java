@@ -229,6 +229,10 @@ public class Cookies {
 		
 		//Recipes
 		
+		//choc chips
+		
+
+		
 		//Ground Items
 		ItemStack tempGrinder = new ItemStack(Cookies.grinder, 1, OreDictionary.WILDCARD_VALUE);
 		
@@ -236,6 +240,15 @@ public class Cookies {
 		GameRegistry.addShapelessRecipe(new ItemStack (Cookies.sugarPowder, 2), tempGrinder , Item.sugar );
 		GameRegistry.addShapelessRecipe(new ItemStack (Cookies.chocPowder, 2), tempGrinder , Cookies.chocChips );
 
+		GameRegistry.addShapelessRecipe(new ItemStack (Cookies.chocChips, 2), tempGrinder , new ItemStack(Item.dyePowder,1,3) );
+
+		
+		
+		//cookie dough
+		
+		GameRegistry.addShapelessRecipe(new ItemStack (Cookies.cookieDough, 2), Item.wheat, Item.sugar, Item.bucketMilk);
+
+		
 		//Tools
 		
 
@@ -244,7 +257,8 @@ public class Cookies {
 		GameRegistry.addRecipe(new ItemStack(Cookies.cutterStar), " x ","xyx", " x ",'x',Item.diamond,'y',Block.wood);
 		GameRegistry.addRecipe(new ItemStack(Cookies.cutterGBMan), " x ","xyx", " x ",'x',Item.emerald,'y',Block.wood);
 		
-		
+		GameRegistry.addRecipe(new ItemStack(Cookies.grinder), " x ","xyx", " x ",'x',Block.wood,'y',Item.ingotIron);
+
 		
 		
 		
@@ -268,7 +282,8 @@ public class Cookies {
 		GameRegistry.addShapelessRecipe(new ItemStack(Cookies.squareSugarCookie), Cookies.cookieDough,Cookies.cutterSquare,Cookies.sugarPowder);
 		GameRegistry.addShapelessRecipe(new ItemStack(Cookies.starSugarCookie), Cookies.cookieDough,Cookies.cutterStar,Cookies.sugarPowder);
 	
-		
+		GameRegistry.addShapelessRecipe(new ItemStack(Cookies.gbMan), Cookies.cookieDough,Cookies.cutterGBMan,Cookies.gingerPowder);
+	
 	}
 	
 	
