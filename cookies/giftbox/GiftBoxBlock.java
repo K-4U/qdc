@@ -19,8 +19,7 @@ public class GiftBoxBlock extends BlockContainer {
 		this.setCreativeTab(Cookies.cookieTab);
 		//this.setBlockBounds(0.4F, 0.0F, 0.4F, 0.6F, 0.3F, 0.6F);
 		//this.setBlockBounds(0.1F, 0.0F, 0.1F, 0.9F, 0.5F, 0.8F);
-		
-		
+	
 		
 		
 		//setTextureName("Cookies:giftbox");
