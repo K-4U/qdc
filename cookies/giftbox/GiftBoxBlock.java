@@ -51,6 +51,11 @@ public class GiftBoxBlock extends BlockContainer {
 		this.blockIcon = icon.registerIcon("cookies:gift_Box");
 	}
 	
+	
+	
+	
+	
+	
 	//public void onBlockPlacedBy(World world, int i, int j, int k, EntityLiving entityLiving){
 		
 //		int rotation = MathHelper.floor_double((double)((entityLiving.rotationYaw * 4F)/360F)+2.5D)&3;
