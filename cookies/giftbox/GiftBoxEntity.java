@@ -1,4 +1,4 @@
-package qdc.cookies;
+package qdc.cookies.giftbox;
 
 import net.minecraft.tileentity.TileEntity;
 

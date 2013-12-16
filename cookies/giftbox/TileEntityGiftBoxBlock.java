@@ -1,5 +1,6 @@
-package qdc.cookies;
+package qdc.cookies.giftbox;
 
+import qdc.cookies.Cookies;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -10,7 +11,7 @@ import net.minecraft.world.World;
 
 public class TileEntityGiftBoxBlock extends BlockContainer {
 
-	protected TileEntityGiftBoxBlock(int par1, Material par2Material) {
+	public TileEntityGiftBoxBlock(int par1, Material par2Material) {
 		super(par1, par2Material);
 		// TODO Auto-generated constructor stub
 		this.setCreativeTab(Cookies.cookieTab);

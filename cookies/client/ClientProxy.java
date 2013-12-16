@@ -2,8 +2,8 @@ package qdc.cookies.client;
 
 import cpw.mods.fml.client.registry.ClientRegistry;
 import qdc.cookies.CommonProxy;
-import qdc.cookies.GiftBoxEntity;
-import qdc.cookies.GiftBoxRenderer;
+import qdc.cookies.giftbox.GiftBoxEntity;
+import qdc.cookies.giftbox.GiftBoxRenderer;
 
 public class ClientProxy extends CommonProxy{
 

@@ -19,6 +19,8 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import qdc.cookies.giftbox.GiftBoxEntity;
+import qdc.cookies.giftbox.TileEntityGiftBoxBlock;
 import qdc.cookies.items.*;
 import qdc.cookies.plants.GingerBlock;
 
