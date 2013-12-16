@@ -2,6 +2,7 @@ package qdc.cookies.giftbox;
 
 import org.lwjgl.opengl.GL11;
 
+import qdc.cookies.Cookies;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.OpenGlHelper;
@@ -15,49 +16,43 @@ import net.minecraft.world.World;
 public class GiftBoxRenderer extends TileEntitySpecialRenderer{
 
 	
-	private static final ResourceLocation GiftBoxLocation = new ResourceLocation("cookies:/textures/blocks/giftbox.png");
+	private ModelGiftbox model;
 	
-	private final ModelGiftbox model = new ModelGiftbox();
-
-
-	public void renderAModelAt(GiftBoxEntity par1GiftBoxEntity, double par2, double par4, double par6, float par8 ){
-		
-	//	int metadata = par1GiftBoxEntity.getBlockMetadata();
-	//	int rotationAngle = 0;
-		
-	//	if(metadata%4 == 0){
-	//		rotationAngle = 0;
-	//	}
-	//	if(metadata % 4 == 1){
-	//		rotationAngle = 270;
-	//	}
-	//	if(metadata % 4 == 2){
-	//		rotationAngle = 180;
-	//	}
-	//	if(metadata % 4 == 3){
-	//		rotationAngle = 90;
-	//	}
-		
-	//	GL11.glPushMatrix();
-	//	GL11.glTranslated((float) par2 + 0.5F, (float)par4 + 1.5F , (float)par6 + 0.5F);
-	//	GL11.glScalef(1.0F, -1F, -1F);
-	//	GL11.glRotatef(rotationAngle * 90 , 0.0F, 1.0F, 0.0F);
-	//	this.bindTexture(GiftBoxLocation);
-	//	this.model.renderAll();
-	//	GL11.glPopMatrix();
-		
-		
+	//private static final ResourceLocation texture = new ResourceLocation(Cookies.modid, "textures/model/giftbox.png");
+private static final ResourceLocation texture = new ResourceLocation("cookies:textures/model/giftbox.png");
+	
+	public GiftBoxRenderer() {
+		this.model = new ModelGiftbox();
 	}
 	
 	
 	
-	
-
 	@Override
-	public void renderTileEntityAt(TileEntity par1TileEntity, double par2, double par4	,	double par6, float par8) {
-			
-		this.renderAModelAt((GiftBoxEntity)par1TileEntity, par2, par4, par6, par8);
+	public void renderTileEntityAt(TileEntity tileentity, double x, double y,
+			double z, float f) {
+		
+		
+		GL11.glPushMatrix();
+		GL11.glTranslatef((float)x + 0.5F, (float)y + 1.5F ,(float)z +0.5F);
+		GL11.glRotatef(180, 0F, 0F, 1F);
+		
+		this.bindTexture(texture);
+		
+		GL11.glPushMatrix();
+		
+		model.renderModel(0.0625F);
+		
+		GL11.glPopMatrix();
+
+		GL11.glPopMatrix();
+		
 	}
+
+	
+
+	
+	
+	
 	
 	
 	

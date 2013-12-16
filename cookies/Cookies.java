@@ -8,6 +8,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemSeedFood;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
+import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Init;
@@ -20,7 +21,8 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import qdc.cookies.giftbox.GiftBoxEntity;
-import qdc.cookies.giftbox.TileEntityGiftBoxBlock;
+import qdc.cookies.giftbox.GiftBoxBlock;
+import qdc.cookies.giftbox.GiftBoxRenderer;
 import qdc.cookies.items.*;
 import qdc.cookies.plants.GingerBlock;
 
@@ -217,11 +219,15 @@ public class Cookies {
 		//Tile Entities
 		
 		
-		proxy.registerRenderers();
+		//proxy.registerRenderers();
 		
 		GameRegistry.registerTileEntity(GiftBoxEntity.class, "giftbox");
 		
-		giftBox = new TileEntityGiftBoxBlock(1400, Material.wood);
+		ClientRegistry.bindTileEntitySpecialRenderer(GiftBoxEntity.class, new GiftBoxRenderer());
+		
+		
+		
+		giftBox = new GiftBoxBlock(1400, Material.wood);
 		registerBlock(giftBox, "Gift Box");
 		
 		
@@ -257,7 +263,7 @@ public class Cookies {
 		GameRegistry.addRecipe(new ItemStack(Cookies.cutterStar), " x ","xyx", " x ",'x',Item.diamond,'y',Block.wood);
 		GameRegistry.addRecipe(new ItemStack(Cookies.cutterGBMan), " x ","xyx", " x ",'x',Item.emerald,'y',Block.wood);
 		
-		GameRegistry.addRecipe(new ItemStack(Cookies.grinder), " x ","xyx", " x ",'x',Block.wood,'y',Item.ingotIron);
+		GameRegistry.addRecipe(new ItemStack(Cookies.grinder), " s ","wcw", "ooo",'w',Block.wood,'c',Cookies.cutterCircle, 'o', Block.cobblestone);
 
 		
 		
