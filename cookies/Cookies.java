@@ -186,7 +186,7 @@ public class Cookies {
 		//Register Ginger Plant
 		gingerBlock = new GingerBlock(1201).setUnlocalizedName("Ginger");
 		registerBlock(gingerBlock, "Ginger");
-		ginger = new ItemSeedFoodGinger(1202, 4, 0.3F, gingerBlock.blockID, Block.tilledField.blockID).setUnlocalizedName("cookies:ginger").setCreativeTab(Cookies.cookieTab);
+		ginger = new ItemSeedFoodGinger(1202, 4, 0.3F, gingerBlock.blockID, Block.tilledField.blockID).setUnlocalizedName("cookies:ginger");
 		registerItem(ginger, "Ginger");
 		
 		
@@ -263,7 +263,7 @@ public class Cookies {
 		GameRegistry.addRecipe(new ItemStack(Cookies.cutterStar), " x ","xyx", " x ",'x',Item.diamond,'y',Block.wood);
 		GameRegistry.addRecipe(new ItemStack(Cookies.cutterGBMan), " x ","xyx", " x ",'x',Item.emerald,'y',Block.wood);
 		
-		GameRegistry.addRecipe(new ItemStack(Cookies.grinder), " s ","wcw", "ooo",'w',Block.wood,'c',Cookies.cutterCircle, 'o', Block.cobblestone);
+		GameRegistry.addRecipe(new ItemStack(Cookies.grinder), " s ","wcw", "ooo",'w',Block.wood,'c',Cookies.cutterCircle, 'o', Block.cobblestone, 's', Item.stick);
 
 		
 		
