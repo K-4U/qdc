@@ -3,6 +3,7 @@ package qdc.cookies.giftbox;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import qdc.cookies.Cookies;
+import qdc.cookies.items.CookieGeneric;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -13,6 +14,9 @@ import net.minecraft.world.World;
 
 public class GiftBoxBlock extends BlockContainer {
 
+	
+	
+	
 	public GiftBoxBlock(int par1, Material par2Material) {
 		super(par1, par2Material);
 		// TODO Auto-generated constructor stub

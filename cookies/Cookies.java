@@ -7,6 +7,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemSeedFood;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.DungeonHooks;
 import net.minecraftforge.oredict.OreDictionary;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.common.Mod;
@@ -47,7 +48,7 @@ public class Cookies {
 	
 	public static CreativeTabs cookieTab;
 	
-	
+	public static CookieWorldGen worldGen = new CookieWorldGen();
 	
 	
 	public static Item gbMan;
@@ -113,6 +114,10 @@ public class Cookies {
 		
 		
 		
+		//Register Worldgen
+		
+		GameRegistry.registerWorldGenerator(worldGen);
+		
 		
 		
 		//Register Cookies
@@ -120,24 +125,18 @@ public class Cookies {
 
 		 roundChocChip = new CookieGeneric(1001, 6, 0.5F, false, "choc_chip_cookie").setUnlocalizedName("cookies:choc_chip_cookie").setCreativeTab(Cookies.cookieTab);
 		registerItem(roundChocChip, "Chocolate Chip Cookie");
-		
 		 squareChocChip = new CookieGeneric(1002, 6, 0.5F, false, "choc_chip_cookie_square").setUnlocalizedName("cookies:choc_chip_cookie_square").setCreativeTab(Cookies.cookieTab);
 		registerItem(squareChocChip, "Chocolate Chip Square Cookie");
-		
 		 starChocChip = new CookieGeneric(1003, 6, 0.5F, false, "choc_chip_cookie_star").setUnlocalizedName("cookies:choc_chip_cookie_star").setCreativeTab(Cookies.cookieTab);
 		 registerItem(starChocChip, "Chocolate Chip Star Cookie");
-		
 		 roundDoubleChocChip = new CookieGeneric(1011, 6, 0.5F, false, "double_choc_chip_cookie").setUnlocalizedName("cookies:double_choc_chip_cookie").setCreativeTab(Cookies.cookieTab);
 		registerItem(roundDoubleChocChip, "Double Chocolate Chip Cookie");
-		
 		 squareDoubleChocChip = new CookieGeneric(1012, 6, 0.5F, false, "double_choc_chip_cookie_square").setUnlocalizedName("cookies:double_choc_chip_cookie_square").setCreativeTab(Cookies.cookieTab);
 		registerItem(squareDoubleChocChip, "Double Chocolate Chip Square Cookie");
-		
 		 starDoubleChocChip = new CookieGeneric(1013, 6, 0.5F, false, "double_choc_chip_cookie_star").setUnlocalizedName("cookies:double_choc_chip_cookie_star").setCreativeTab(Cookies.cookieTab);
 		registerItem(starDoubleChocChip, "Double Chocolate Chip Star Cookie");
-		
 	
-		 roundSugarCookie = new CookieGeneric(1021,6,0.5F, false, "sugar_cookie").setUnlocalizedName("cookies:sugar_cookie").setCreativeTab(Cookies.cookieTab);
+		 roundSugarCookie = new CookieGeneric(1024,6,0.5F, false, "sugar_cookie").setUnlocalizedName("cookies:sugar_cookie").setCreativeTab(Cookies.cookieTab);
 		registerItem(roundSugarCookie, "Sugar Cookie");
 		 squareSugarCookie = new CookieGeneric(1022,6,0.5F, false, "sugar_cookie_square").setUnlocalizedName("cookies:sugar_cookie_square").setCreativeTab(Cookies.cookieTab);
 		 registerItem(squareSugarCookie,"Square Sugar Cookie");
@@ -152,7 +151,7 @@ public class Cookies {
 		
 		
 		
-		gbMan = new CookieGeneric(1041, 6, 0.5F, false,"GBMan" ).setUnlocalizedName("cookies:GBMan").setCreativeTab(CreativeTabs.tabFood).setCreativeTab(Cookies.cookieTab);
+		gbMan = new CookieGeneric(1041, 12, 0.5F, false,"GBMan" ).setUnlocalizedName("cookies:GBMan").setCreativeTab(CreativeTabs.tabFood).setCreativeTab(Cookies.cookieTab);
 		registerItem(gbMan, "Gingerbread Man");
 		
 		
@@ -195,16 +194,16 @@ public class Cookies {
 		
 				//cutters
 		//change to generic cutter , this is wrong!!
-		cutterCircle = new CutterCircle(1301).setUnlocalizedName("cookie_cutter_circle").setCreativeTab(Cookies.cookieTab).setMaxStackSize(1);
+		cutterCircle = new CutterGeneric(1301,"cookie_cutter_circle").setUnlocalizedName("cookie_cutter_circle").setCreativeTab(Cookies.cookieTab).setMaxStackSize(1);
 		registerItem(cutterCircle,"Round Cookie Cutter");
 		
-		cutterSquare = new CutterSquare(1302).setUnlocalizedName("cookie_cutter_square").setCreativeTab(Cookies.cookieTab).setMaxStackSize(1);
+		cutterSquare = new CutterGeneric(1302, "cookie_cutter_square").setUnlocalizedName("cookie_cutter_square").setCreativeTab(Cookies.cookieTab).setMaxStackSize(1);
 		registerItem(cutterSquare, "Square Cookie Cutter");
 		
-		cutterStar = new CutterStar(1304).setUnlocalizedName("cookie_cutter_star").setCreativeTab(Cookies.cookieTab).setMaxStackSize(1);
+		cutterStar = new CutterGeneric(1304, "cookie_cutter_star").setUnlocalizedName("cookie_cutter_star").setCreativeTab(Cookies.cookieTab).setMaxStackSize(1);
 		registerItem(cutterStar, "Star Cookie Cutter");
 		
-		cutterGBMan = new CutterGBMan(1305).setUnlocalizedName("cookie_cutter_gingerbread_man").setCreativeTab(Cookies.cookieTab).setMaxStackSize(1);
+		cutterGBMan = new CutterGeneric(1305, "cookie_cutter_gingerbread_man").setUnlocalizedName("cookie_cutter_gingerbread_man").setCreativeTab(Cookies.cookieTab).setMaxStackSize(1);
 		registerItem(cutterGBMan,"Gingerbread Man Cutter");
 		// Grinder
 		grinder = new Grinder(1320).setUnlocalizedName("cookies:hand_grinder");
@@ -272,24 +271,28 @@ public class Cookies {
 		
 		
 		//Cookies
-		GameRegistry.addShapelessRecipe(new ItemStack(Cookies.roundPlainCookie,1), Cookies.cookieDough,Cookies.cutterCircle);
+		GameRegistry.addShapelessRecipe(new ItemStack(Cookies.roundPlainCookie), Cookies.cookieDough,Cookies.cutterCircle);
 		GameRegistry.addShapelessRecipe(new ItemStack(Cookies.squarePlainCookie), Cookies.cookieDough,Cookies.cutterSquare);
 		GameRegistry.addShapelessRecipe(new ItemStack(Cookies.starPlainCookie), Cookies.cookieDough,Cookies.cutterStar);
 	
-		GameRegistry.addShapelessRecipe(new ItemStack(Cookies.roundChocChip,1), Cookies.cookieDough,Cookies.cutterCircle,Cookies.chocChips);
+		GameRegistry.addShapelessRecipe(new ItemStack(Cookies.roundChocChip), Cookies.cookieDough,Cookies.cutterCircle,Cookies.chocChips);
 		GameRegistry.addShapelessRecipe(new ItemStack(Cookies.squareChocChip), Cookies.cookieDough,Cookies.cutterSquare,Cookies.chocChips);
 		GameRegistry.addShapelessRecipe(new ItemStack(Cookies.starChocChip), Cookies.cookieDough,Cookies.cutterStar,Cookies.chocChips);
 		
-		GameRegistry.addShapelessRecipe(new ItemStack(Cookies.roundDoubleChocChip,1), Cookies.cookieDough,Cookies.cutterCircle,Cookies.chocChips,Cookies.chocPowder);
+		GameRegistry.addShapelessRecipe(new ItemStack(Cookies.roundDoubleChocChip), Cookies.cookieDough,Cookies.cutterCircle,Cookies.chocChips,Cookies.chocPowder);
 		GameRegistry.addShapelessRecipe(new ItemStack(Cookies.squareDoubleChocChip), Cookies.cookieDough,Cookies.cutterSquare,Cookies.chocChips,Cookies.chocPowder);
 		GameRegistry.addShapelessRecipe(new ItemStack(Cookies.starDoubleChocChip), Cookies.cookieDough,Cookies.cutterStar,Cookies.chocChips,Cookies.chocPowder);
 		
-		GameRegistry.addShapelessRecipe(new ItemStack(Cookies.roundSugarCookie,1), Cookies.cookieDough,Cookies.cutterCircle,Cookies.sugarPowder);
+		GameRegistry.addShapelessRecipe(new ItemStack(Cookies.roundSugarCookie), Cookies.cookieDough,Cookies.cutterCircle,Cookies.sugarPowder);
 		GameRegistry.addShapelessRecipe(new ItemStack(Cookies.squareSugarCookie), Cookies.cookieDough,Cookies.cutterSquare,Cookies.sugarPowder);
 		GameRegistry.addShapelessRecipe(new ItemStack(Cookies.starSugarCookie), Cookies.cookieDough,Cookies.cutterStar,Cookies.sugarPowder);
 	
 		GameRegistry.addShapelessRecipe(new ItemStack(Cookies.gbMan), Cookies.cookieDough,Cookies.cutterGBMan,Cookies.gingerPowder);
-	
+		
+
+		
+		
+		
 	}
 	
 	

@@ -5,22 +5,27 @@ import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.item.Item;
 
-public class CutterStar extends Item{
+public class CutterGeneric extends Item {
 
-	public CutterStar(int par1) {
+	private String cutterType;
+	
+	
+	public CutterGeneric(int par1, String cutterName) {
 		super(par1);
-		// TODO Auto-generated constructor stub
+		cutterType = cutterName;
 	}
-	
-	
+
 	
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister iconregister){
 		
-		this.itemIcon = iconregister.registerIcon("cookies:cookie_cutter_star");
+		this.itemIcon = iconregister.registerIcon("cookies:" +cutterType);
 		
 		
 		
 	}
-
+	
+	
+	
+	
 }
