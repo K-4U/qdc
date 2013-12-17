@@ -17,6 +17,7 @@ import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
+import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import cpw.mods.fml.relauncher.Side;
@@ -88,6 +89,8 @@ public class Cookies {
 	
 	public static Block giftBox;
 	
+	public static final int guiGiftBox = 0;
+	
 	
 	
 	@EventHandler
@@ -118,7 +121,9 @@ public class Cookies {
 		
 		GameRegistry.registerWorldGenerator(worldGen);
 		
+		//Register Guis?
 		
+		NetworkRegistry.instance().registerGuiHandler(this, new GuiHandler() );
 		
 		//Register Cookies
 		
