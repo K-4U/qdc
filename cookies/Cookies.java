@@ -94,15 +94,12 @@ public class Cookies {
 				cookieTab.getTranslatedTabLabel(), "All the Cookies!");
 
 		// register damage handler
-
 		GameRegistry.registerCraftingHandler(new CookieCraftingHandler());
 
 		// Register Worldgen
-
 		GameRegistry.registerWorldGenerator(worldGen);
 
 		// Register Guis?
-
 		NetworkRegistry.instance().registerGuiHandler(this, new GuiHandler());
 
 		// Register Cookies
@@ -120,77 +117,45 @@ public class Cookies {
 	}
 
 	private void registerItems() {
-		roundChocChip = new CookieGeneric(1001, 6, 0.5F, false,
-				"choc_chip_cookie").setUnlocalizedName(
-				"cookies:choc_chip_cookie").setCreativeTab(Cookies.cookieTab);
+		roundChocChip = new CookieGeneric(1001, 6, 0.5F, false, "choc_chip_cookie");
 		registerItem(roundChocChip, "Chocolate Chip Cookie");
-		squareChocChip = new CookieGeneric(1002, 6, 0.5F, false,
-				"choc_chip_cookie_square").setUnlocalizedName(
-				"cookies:choc_chip_cookie_square");
+
+		squareChocChip = new CookieGeneric(1002, 6, 0.5F, false, "choc_chip_cookie_square");
 		registerItem(squareChocChip, "Chocolate Chip Square Cookie");
-		starChocChip = new CookieGeneric(1003, 6, 0.5F, false,
-				"choc_chip_cookie_star").setUnlocalizedName(
-				"cookies:choc_chip_cookie_star");
+
+		starChocChip = new CookieGeneric(1003, 6, 0.5F, false, "choc_chip_cookie_star");
 		registerItem(starChocChip, "Chocolate Chip Star Cookie");
-		roundDoubleChocChip = new CookieGeneric(1011, 6, 0.5F, false,
-				"double_choc_chip_cookie").setUnlocalizedName(
-				"cookies:double_choc_chip_cookie");
+		
+		roundDoubleChocChip = new CookieGeneric(1011, 6, 0.5F, false, "double_choc_chip_cookie");
 		registerItem(roundDoubleChocChip, "Double Chocolate Chip Cookie");
-		squareDoubleChocChip = new CookieGeneric(1012, 6, 0.5F, false,
-				"double_choc_chip_cookie_square").setUnlocalizedName(
-				"cookies:double_choc_chip_cookie_square");
-		registerItem(squareDoubleChocChip,
-				"Double Chocolate Chip Square Cookie");
-		starDoubleChocChip = new CookieGeneric(1013, 6, 0.5F, false,
-				"double_choc_chip_cookie_star").setUnlocalizedName(
-				"cookies:double_choc_chip_cookie_star");
+		squareDoubleChocChip = new CookieGeneric(1012, 6, 0.5F, false, "double_choc_chip_cookie_square");
+		registerItem(squareDoubleChocChip, "Double Chocolate Chip Square Cookie");
+		starDoubleChocChip = new CookieGeneric(1013, 6, 0.5F, false, "double_choc_chip_cookie_star");
 		registerItem(starDoubleChocChip, "Double Chocolate Chip Star Cookie");
-		roundSugarCookie = new CookieGeneric(1024, 6, 0.5F, false,
-				"sugar_cookie").setUnlocalizedName("cookies:sugar_cookie");
+		roundSugarCookie = new CookieGeneric(1024, 6, 0.5F, false, "sugar_cookie");
 		registerItem(roundSugarCookie, "Sugar Cookie");
-		squareSugarCookie = new CookieGeneric(1022, 6, 0.5F, false,
-				"sugar_cookie_square").setUnlocalizedName(
-				"cookies:sugar_cookie_square");
+		squareSugarCookie = new CookieGeneric(1022, 6, 0.5F, false, "sugar_cookie_square");
 		registerItem(squareSugarCookie, "Square Sugar Cookie");
-		starSugarCookie = new CookieGeneric(1023, 6, 0.5F, false,
-				"sugar_cookie_star").setUnlocalizedName(
-				"cookies:sugar_cookie_star");
+		starSugarCookie = new CookieGeneric(1023, 6, 0.5F, false, "sugar_cookie_star");
 		registerItem(starSugarCookie, "Star Sugar Cookie");
-		roundPlainCookie = new CookieGeneric(1031, 6, 0.5F, false,
-				"plain_cookie").setUnlocalizedName("cookies:plain_cookie");
+		roundPlainCookie = new CookieGeneric(1031, 6, 0.5F, false, "plain_cookie");
 		registerItem(roundPlainCookie, "Plain Cookie");
-		squarePlainCookie = new CookieGeneric(1032, 6, 0.5F, false,
-				"plain_cookie_square").setUnlocalizedName(
-				"cookies:plain_cookie_square");
+		squarePlainCookie = new CookieGeneric(1032, 6, 0.5F, false, "plain_cookie_square");
 		registerItem(squarePlainCookie, "Square Cookie");
-		starPlainCookie = new CookieGeneric(1033, 6, 0.5F, false,
-				"plain_cookie_star").setUnlocalizedName(
-				"cookies:plain_cookie_star");
+		starPlainCookie = new CookieGeneric(1033, 6, 0.5F, false, "plain_cookie_star");
 		registerItem(starPlainCookie, "Star Cookie");
-
-		gbMan = new CookieGeneric(1041, 12, 0.5F, false, "GBMan")
-				.setUnlocalizedName("cookies:GBMan")
-				.setCreativeTab(CreativeTabs.tabFood);
+		gbMan = new CookieGeneric(1041, 12, 0.5F, false, "GBMan");
 		registerItem(gbMan, "Gingerbread Man");
-
-		christmasCookie = new CookieGeneric(1042, 12, 0.5F, false,
-				"stream_xmas_tree");
+		christmasCookie = new CookieGeneric(1042, 12, 0.5F, false, "stream_xmas_tree");
 		registerItem(christmasCookie, "Stream Christmas Cookie");
 
 		// cookie dough
-
-		cookieDough = new CookieDough(1101)
-				.setUnlocalizedName("cookies:cookie_dough")
-				.setCreativeTab(CreativeTabs.tabFood)
-				.setCreativeTab(Cookies.cookieTab);
-
+		cookieDough = new CookieDough(1101).setUnlocalizedName("cookies:cookie_dough");
 		registerItem(cookieDough, "Cookie Dough");
 
 		// Sugar Powder
 		sugarPowder = new SugarPowder(1102)
-				.setUnlocalizedName("cookies:sugar_powder")
-				.setCreativeTab(CreativeTabs.tabFood)
-				.setCreativeTab(Cookies.cookieTab);
+				.setUnlocalizedName("cookies:sugar_powder");
 		registerItem(sugarPowder, "Sugar Powder");
 
 		// choc Powder
@@ -227,7 +192,6 @@ public class Cookies {
 		registerItem(cutterSquare, "Square Cookie Cutter");
 		registerItem(cutterStar, "Star Cookie Cutter");
 		registerItem(cutterGBMan, "Gingerbread Man Cutter");
-
 		registerItem(cutterXmas, "Christmas Tree Cutter");
 
 		// Grinder
