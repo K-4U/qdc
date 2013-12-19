@@ -216,26 +216,18 @@ public class Cookies {
 				.setCreativeTab(Cookies.cookieTab);
 		registerItem(ginger, "Ginger");
 
-		// cutters
-		// change to generic cutter , this is wrong!!
-		cutterCircle = new CutterGeneric(1301, "cookie_cutter_circle")
-				.setUnlocalizedName("cookie_cutter_circle");
+		// Cutters
+		cutterCircle = new CutterGeneric(1301, "cookie_cutter_circle");
+		cutterSquare = new CutterGeneric(1302, "cookie_cutter_square");
+		cutterStar   = new CutterGeneric(1304, "cookie_cutter_star");
+		cutterGBMan  = new CutterGeneric(1305, "cookie_cutter_gingerbread_man");
+		cutterXmas   = new CutterGeneric(1306, "xmas_tree_cutter");
+		
 		registerItem(cutterCircle, "Round Cookie Cutter");
-
-		cutterSquare = new CutterGeneric(1302, "cookie_cutter_square")
-				.setUnlocalizedName("cookie_cutter_square");
 		registerItem(cutterSquare, "Square Cookie Cutter");
-
-		cutterStar = new CutterGeneric(1304, "cookie_cutter_star")
-				.setUnlocalizedName("cookie_cutter_star");
 		registerItem(cutterStar, "Star Cookie Cutter");
-
-		cutterGBMan = new CutterGeneric(1305, "cookie_cutter_gingerbread_man")
-				.setUnlocalizedName("cookie_cutter_gingerbread_man");
 		registerItem(cutterGBMan, "Gingerbread Man Cutter");
 
-		cutterXmas = new CutterGeneric(1306, "xmas_tree_cutter")
-				.setUnlocalizedName("xmas_tree_cutter");
 		registerItem(cutterXmas, "Christmas Tree Cutter");
 
 		// Grinder

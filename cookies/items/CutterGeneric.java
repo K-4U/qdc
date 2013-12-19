@@ -13,14 +13,14 @@ public class CutterGeneric extends Item {
 	public CutterGeneric(int par1, String cutterName) {
 		super(par1);
 		cutterType = cutterName;
+		this.setUnlocalizedName(cutterType);
 		this.setCreativeTab(Cookies.cookieTab);
+		this.setMaxStackSize(1);
 	}
 
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister iconregister) {
-
 		this.itemIcon = iconregister.registerIcon("cookies:" + cutterType);
-
 	}
 
 }
