@@ -65,13 +65,14 @@ public class Cookies {
 	public static Item roundPlainCookie;
 	public static Item squarePlainCookie;
 	public static Item starPlainCookie;
-	
+	public static Item christmasCookie;
 	
 	
 	public static Item cutterCircle;
 	public static Item cutterSquare;
 	public static Item cutterStar;
 	public static Item cutterGBMan;
+	public static Item cutterXmas;
 	
 	
 	public static Item grinder;
@@ -159,6 +160,8 @@ public class Cookies {
 		gbMan = new CookieGeneric(1041, 12, 0.5F, false,"GBMan" ).setUnlocalizedName("cookies:GBMan").setCreativeTab(CreativeTabs.tabFood).setCreativeTab(Cookies.cookieTab);
 		registerItem(gbMan, "Gingerbread Man");
 		
+		christmasCookie = new CookieGeneric(1042,12,0.5F,false,"stream_xmas_tree").setCreativeTab(Cookies.cookieTab);
+		registerItem(christmasCookie,"Stream Christmas Cookie");
 		
 		//cookie dough
 		
@@ -190,7 +193,7 @@ public class Cookies {
 		//Register Ginger Plant
 		gingerBlock = new GingerBlock(1201).setUnlocalizedName("Ginger");
 		registerBlock(gingerBlock, "Ginger");
-		ginger = new ItemSeedFoodGinger(1202, 4, 0.3F, gingerBlock.blockID, Block.tilledField.blockID).setUnlocalizedName("cookies:ginger");
+		ginger = new ItemSeedFoodGinger(1202, 4, 0.3F, gingerBlock.blockID, Block.tilledField.blockID).setUnlocalizedName("cookies:ginger").setCreativeTab(Cookies.cookieTab);
 		registerItem(ginger, "Ginger");
 		
 		
@@ -210,6 +213,10 @@ public class Cookies {
 		
 		cutterGBMan = new CutterGeneric(1305, "cookie_cutter_gingerbread_man").setUnlocalizedName("cookie_cutter_gingerbread_man").setCreativeTab(Cookies.cookieTab).setMaxStackSize(1);
 		registerItem(cutterGBMan,"Gingerbread Man Cutter");
+		
+		cutterXmas = new CutterGeneric(1306, "xmas_tree_cutter").setUnlocalizedName("xmas_tree_cutter").setCreativeTab(Cookies.cookieTab).setMaxStackSize(1);
+		registerItem(cutterXmas,"Christmas Tree Cutter");
+		
 		// Grinder
 		grinder = new Grinder(1320).setUnlocalizedName("cookies:hand_grinder");
 		registerItem(grinder, "Hand Grinder");
@@ -266,11 +273,16 @@ public class Cookies {
 		GameRegistry.addRecipe(new ItemStack(Cookies.cutterSquare), " x ","xyx", " x ",'x',Item.ingotGold,'y',Block.wood);
 		GameRegistry.addRecipe(new ItemStack(Cookies.cutterStar), " x ","xyx", " x ",'x',Item.diamond,'y',Block.wood);
 		GameRegistry.addRecipe(new ItemStack(Cookies.cutterGBMan), " x ","xyx", " x ",'x',Item.emerald,'y',Block.wood);
+		GameRegistry.addRecipe(new ItemStack(Cookies.cutterXmas), " x ","xyx", " x ",'x',new ItemStack(Item.dyePowder,1,4),'y',Block.wood);
 		
 		GameRegistry.addRecipe(new ItemStack(Cookies.grinder), " s ","wcw", "ooo",'w',Block.wood,'c',Cookies.cutterCircle, 'o', Block.cobblestone, 's', Item.stick);
 
 		
 		
+		
+		
+		GameRegistry.addRecipe(new ItemStack(Cookies.christmasCookie), " g ","ybr", "dsc",'g',new ItemStack(Item.dyePowder,1,2),'y',new ItemStack(Item.dyePowder,1,11),'b',new ItemStack(Item.dyePowder,1,4),'r',new ItemStack(Item.dyePowder,1,1),'c',Cookies.cutterXmas, 'd', Cookies.cookieDough, 's', Cookies.sugarPowder);
+
 		
 		//ItemStack tempCutterCircle = new ItemStack(Cookies.cutterCircle, 1, OreDictionary.WILDCARD_VALUE);
 		

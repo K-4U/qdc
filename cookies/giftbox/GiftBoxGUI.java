@@ -20,8 +20,9 @@ public class GiftBoxGUI extends GuiContainer {
 	public GiftBoxGUI(InventoryPlayer inventory, GiftBoxEntity entity) {
 		super(new GiftBoxContainer(inventory, entity));
 		this.giftbox = entity;
-		this.xSize = 180;
-		this.ySize = 180;
+		this.xSize = 175;
+		this.ySize = 166;
+		
 	}
 
 

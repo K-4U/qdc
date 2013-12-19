@@ -69,23 +69,9 @@ public class GiftBoxBlock extends BlockContainer {
             if (!(tile instanceof GiftBoxEntity))
                     return false;
 
-            //ItemStack current = player.getCurrentEquippedItem();
-           // Item equipped = (Item) (current != null ? current.getItem() : null);
-
-
-           // if (current != null && (equipped instanceof CookieGeneric)) {
-                //    if (!world.isRemote) {
-               //             if (FluidUtils.handleRightClick((TileRefinery) tile, ForgeDirection.getOrientation(side), player, true, false))
-              //                      return true;
-             //       } else if (FluidContainerRegistry.isContainer(current)) {
-            //                return true;
-           //         }
-          //  }
 
             if (!world.isRemote) {
-            	//GiftBoxGUI myGui = new GiftBoxGUI(player.inventory, null);
-                  // player.openGui(Cookies.instance, myGui. , world, x, y, z);
-           //FMLNetworkHandler.openGui(player, Cookies.instance, Cookies.guiGiftBox, world, x, y, z);
+
             	  FMLNetworkHandler.openGui(player, Cookies.instance, 0, world, x, y, z);
             }
 

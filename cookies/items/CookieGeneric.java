@@ -17,6 +17,9 @@ public class CookieGeneric extends ItemFood{
 			this.setPotionEffect(Potion.moveSpeed.id, 10, 2, 1F);
 		}
 		
+		if(cookieType == "stream_xmas_tree"){
+			this.setPotionEffect(Potion.wither.id, 20, 2, 1F);
+		}
 		// TODO Auto-generated constructor stub
 	}
 
