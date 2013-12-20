@@ -90,7 +90,6 @@ public class Cookies {
 	public static Item sugarPowder;
 	public static Item chocPowder;
 	public static Item gingerPowder;
-	public static Item chocChips;
 
 	public static Block gingerBlock;
 	public static Item ginger;
@@ -177,11 +176,6 @@ public class Cookies {
 				"cookies:grated_ginger").setCreativeTab(Cookies.cookieTab);
 		this.registerItem(gingerPowder, "Ginger Powder");
 
-		// choc chips
-		chocChips = new ChocChip(1105).setUnlocalizedName("cookies:choc_chips")
-				.setCreativeTab(Cookies.cookieTab);
-		this.registerItem(chocChips, "Chocolate Chips");
-
 		// Register Ginger Plant
 		gingerBlock = new GingerBlock(1201).setUnlocalizedName("Ginger");
 		this.registerBlock(gingerBlock, "Ginger");
@@ -208,12 +202,17 @@ public class Cookies {
 		this.registerItem(grinder, "Hand Grinder");
 		
 		// Adding Cookies!
+		
+		// choc chips
+		cookieItems.put(ChocChip.class, new ChocChip(1105).register());
 		cookieItems.put(RoundChocChipCookie.class, new RoundChocChipCookie(1001).register());
 		cookieItems.put(GBManCookie.class, new GBManCookie(1041).register());
 		cookieItems.put(RoundSugarCookie.class, new RoundSugarCookie(1024).register());
 		cookieItems.put(SquareChocChip.class, new SquareChocChip(1002).register());
+		 
 		// Temp: until all Receipes use the Map,
 		// then we can get rid of this many statics and use the map
+		
 		gbMan = cookieItems.get(GBManCookie.class);
 		roundChocChip = cookieItems.get(RoundChocChipCookie.class);
 		roundSugarCookie = cookieItems.get(RoundSugarCookie.class);
@@ -244,7 +243,7 @@ public class Cookies {
 		GameRegistry.addShapelessRecipe(new ItemStack(Cookies.sugarPowder, 2),
 				tempGrinder, Item.sugar);
 		GameRegistry.addShapelessRecipe(new ItemStack(Cookies.chocPowder, 2),
-				tempGrinder, Cookies.chocChips);
+				tempGrinder, cookieItems.get(ChocChip.class));
 
 		// cookie dough
 		GameRegistry.addShapelessRecipe(new ItemStack(Cookies.cookieDough, 2),
@@ -274,7 +273,7 @@ public class Cookies {
 				Cookies.cookieDough, 's', Cookies.sugarPowder);
 
 		// Cookies
-		GameRegistry.addShapelessRecipe(new ItemStack(Cookies.chocChips, 2),
+		GameRegistry.addShapelessRecipe(new ItemStack(Cookies.cookieItems.get(ChocChip.class), 2), // TODO
 				tempGrinder, new ItemStack(Item.dyePowder, 1, 3));
 		GameRegistry.addShapelessRecipe(
 				new ItemStack(Cookies.roundPlainCookie), Cookies.cookieDough,
@@ -286,19 +285,19 @@ public class Cookies {
 				Cookies.cookieDough, Cookies.cutterStar);
 
 		GameRegistry.addShapelessRecipe(new ItemStack(Cookies.roundChocChip),
-				Cookies.cookieDough, Cookies.cutterCircle, Cookies.chocChips);
+				Cookies.cookieDough, Cookies.cutterCircle, Cookies.cookieItems.get(ChocChip.class));
 		GameRegistry.addShapelessRecipe(new ItemStack(Cookies.starChocChip),
-				Cookies.cookieDough, Cookies.cutterStar, Cookies.chocChips);
+				Cookies.cookieDough, Cookies.cutterStar, Cookies.cookieItems.get(ChocChip.class));
 
 		GameRegistry.addShapelessRecipe(new ItemStack(
 				Cookies.roundDoubleChocChip), Cookies.cookieDough,
-				Cookies.cutterCircle, Cookies.chocChips, Cookies.chocPowder);
+				Cookies.cutterCircle, Cookies.cookieItems.get(ChocChip.class), Cookies.chocPowder);
 		GameRegistry.addShapelessRecipe(new ItemStack(
 				Cookies.squareDoubleChocChip), Cookies.cookieDough,
-				Cookies.cutterSquare, Cookies.chocChips, Cookies.chocPowder);
+				Cookies.cutterSquare, Cookies.cookieItems.get(ChocChip.class), Cookies.chocPowder);
 		GameRegistry.addShapelessRecipe(new ItemStack(
 				Cookies.starDoubleChocChip), Cookies.cookieDough,
-				Cookies.cutterStar, Cookies.chocChips, Cookies.chocPowder);
+				Cookies.cutterStar, Cookies.cookieItems.get(ChocChip.class), Cookies.chocPowder);
 
 		GameRegistry.addShapelessRecipe(
 				new ItemStack(Cookies.squareSugarCookie), Cookies.cookieDough,
