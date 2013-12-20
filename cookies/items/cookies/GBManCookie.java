@@ -37,7 +37,9 @@ public class GBManCookie extends AbstractCookieItem {
 	@Override
 	protected void registerReceipes() {
 		GameRegistry.addShapelessRecipe(new ItemStack(this),
-				Cookies.cookieDough, Cookies.cutterGBMan, Cookies.gingerPowder);
+				Cookies.cookieDough, // to be replaced with the map  
+				Cookies.cutterGBMan, // to be replaced with the map 
+				Cookies.gingerPowder);// to be replaced with the map 
 	}
 	
 }

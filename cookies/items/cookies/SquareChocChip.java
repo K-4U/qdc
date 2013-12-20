@@ -29,7 +29,9 @@ public class SquareChocChip extends AbstractCookieItem {
 	@Override
 	protected void registerReceipes() {
 		GameRegistry.addShapelessRecipe(new ItemStack(this),
-				Cookies.cookieDough, Cookies.cutterSquare, Cookies.cookieItems.get(ChocChip.class));
+				Cookies.cookieDough,  // to be replaced with the map 
+				Cookies.cutterSquare, // to be replaced with the map  
+				Cookies.cookieItems.get(ChocChip.class));
 	}
 
 }

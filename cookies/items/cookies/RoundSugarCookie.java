@@ -30,8 +30,10 @@ public class RoundSugarCookie extends AbstractCookieItem {
 	@Override
 	protected void registerReceipes() {
 		GameRegistry.addShapelessRecipe(
-				new ItemStack(this), Cookies.cookieDough,
-				Cookies.cutterCircle, Cookies.sugarPowder);
+				new ItemStack(this),
+				Cookies.cookieDough, // to be replaced with the map 
+				Cookies.cutterCircle,// to be replaced with the map 
+				Cookies.sugarPowder);// to be replaced with the map 
 	}
 
 }
