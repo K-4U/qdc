@@ -4,14 +4,16 @@ import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemFood;
 import qdc.cookies.Cookies;
+import qdc.cookies.items.CookieGeneric;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 /**
- * Abstraction of an Cookie. 
- * @author Ralle030583
+ * Abstraction of an Cookie.
+ * @author orginal source {@link CookieGeneric}  KentBen 
+ * @author refactor: Ralle030583
  */
 public abstract class AbstractCookieItem extends ItemFood {
 

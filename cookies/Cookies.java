@@ -23,6 +23,7 @@ import qdc.cookies.items.SugarPowder;
 import qdc.cookies.items.cookies.GBManCookie;
 import qdc.cookies.items.cookies.RoundChocChipCookie;
 import qdc.cookies.items.cookies.RoundSugarCookie;
+import qdc.cookies.items.cookies.SquareChocChip;
 import qdc.cookies.plants.GingerBlock;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.common.Mod;
@@ -134,9 +135,6 @@ public class Cookies {
 	}
 
 	private void registerItems() {
-		squareChocChip = new CookieGeneric(1002, 6, 0.5F, false, "choc_chip_cookie_square");
-		this.registerItem(squareChocChip, "Chocolate Chip Square Cookie");
-
 		starChocChip = new CookieGeneric(1003, 6, 0.5F, false, "choc_chip_cookie_star");
 		this.registerItem(starChocChip, "Chocolate Chip Star Cookie");
 		
@@ -209,19 +207,17 @@ public class Cookies {
 		grinder = new Grinder(1320).setUnlocalizedName("cookies:hand_grinder");
 		this.registerItem(grinder, "Hand Grinder");
 		
-		
-		
-		
 		// Adding Cookies!
 		cookieItems.put(RoundChocChipCookie.class, new RoundChocChipCookie(1001).register());
 		cookieItems.put(GBManCookie.class, new GBManCookie(1041).register());
 		cookieItems.put(RoundSugarCookie.class, new RoundSugarCookie(1024).register());
-		
+		cookieItems.put(SquareChocChip.class, new SquareChocChip(1002).register());
 		// Temp: until all Receipes use the Map,
 		// then we can get rid of this many statics and use the map
 		gbMan = cookieItems.get(GBManCookie.class);
 		roundChocChip = cookieItems.get(RoundChocChipCookie.class);
 		roundSugarCookie = cookieItems.get(RoundSugarCookie.class);
+		squareChocChip = cookieItems.get(SquareChocChip.class);
 	}
 
 	private void registerTiles() {
@@ -289,8 +285,8 @@ public class Cookies {
 		GameRegistry.addShapelessRecipe(new ItemStack(Cookies.starPlainCookie),
 				Cookies.cookieDough, Cookies.cutterStar);
 
-		GameRegistry.addShapelessRecipe(new ItemStack(Cookies.squareChocChip),
-				Cookies.cookieDough, Cookies.cutterSquare, Cookies.chocChips);
+		GameRegistry.addShapelessRecipe(new ItemStack(Cookies.roundChocChip),
+				Cookies.cookieDough, Cookies.cutterCircle, Cookies.chocChips);
 		GameRegistry.addShapelessRecipe(new ItemStack(Cookies.starChocChip),
 				Cookies.cookieDough, Cookies.cutterStar, Cookies.chocChips);
 

@@ -4,34 +4,31 @@ import net.minecraft.item.ItemStack;
 import qdc.cookies.Cookies;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-
-
 /**
- * Ginger Bread Man Cookie!
+ * Square Choc Cip.
  * 
  * @author Ralle030583
  */
-public class RoundSugarCookie extends AbstractCookieItem {
+public class SquareChocChip extends AbstractCookieItem {
 
-	public RoundSugarCookie(int itemId) {
+	public SquareChocChip(int itemId) {
 		super(itemId);
 	}
 
 	@Override
 	protected String getCookieName() {
-		return "sugar_cookie";
+		return "choc_chip_cookie_square";
 	}
 
 	@Override
 	protected String getIngameName() {
-		return "Sugar Cookie";
+		return "Chocolate Chip Square Cookie";
 	}
 
 	@Override
 	protected void registerReceipes() {
-		GameRegistry.addShapelessRecipe(
-				new ItemStack(this), Cookies.cookieDough,
-				Cookies.cutterCircle, Cookies.sugarPowder);
+		GameRegistry.addShapelessRecipe(new ItemStack(this),
+				Cookies.cookieDough, Cookies.cutterSquare, Cookies.chocChips);
 	}
 
 }

@@ -29,9 +29,8 @@ public class RoundChocChipCookie extends AbstractCookieItem {
 
 	@Override
 	protected void registerReceipes() {
-		GameRegistry.addShapelessRecipe(new ItemStack(Cookies.roundChocChip),
+		GameRegistry.addShapelessRecipe(new ItemStack(this),
 				Cookies.cookieDough, Cookies.cutterCircle, Cookies.chocChips);
-		
 	}
 
 }
