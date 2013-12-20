@@ -88,7 +88,6 @@ public class Cookies {
 
 	public static Item cookieDough;
 	public static Item sugarPowder;
-	public static Item chocPowder;
 	public static Item gingerPowder;
 
 	public static Block gingerBlock;
@@ -166,11 +165,6 @@ public class Cookies {
 				.setUnlocalizedName("cookies:sugar_powder");
 		this.registerItem(sugarPowder, "Sugar Powder");
 
-		// choc Powder
-		chocPowder = new ChocolatePowder(1103).setUnlocalizedName(
-				"cookies:chocolate_powder").setCreativeTab(Cookies.cookieTab);
-		this.registerItem(chocPowder, "Chocolate Powder");
-
 		// Ginger Powder
 		gingerPowder = new GingerPowder(1104).setUnlocalizedName(
 				"cookies:grated_ginger").setCreativeTab(Cookies.cookieTab);
@@ -201,10 +195,12 @@ public class Cookies {
 		grinder = new Grinder(1320).setUnlocalizedName("cookies:hand_grinder");
 		this.registerItem(grinder, "Hand Grinder");
 		
-		// Adding Cookies!
 		
-		// choc chips
+		// Adding reagents
 		cookieItems.put(ChocChip.class, new ChocChip(1105).register());
+		cookieItems.put(ChocolatePowder.class,new ChocolatePowder(1103).register());
+
+		// Adding Cookies!
 		cookieItems.put(RoundChocChipCookie.class, new RoundChocChipCookie(1001).register());
 		cookieItems.put(GBManCookie.class, new GBManCookie(1041).register());
 		cookieItems.put(RoundSugarCookie.class, new RoundSugarCookie(1024).register());
@@ -242,7 +238,7 @@ public class Cookies {
 				tempGrinder, Cookies.ginger);
 		GameRegistry.addShapelessRecipe(new ItemStack(Cookies.sugarPowder, 2),
 				tempGrinder, Item.sugar);
-		GameRegistry.addShapelessRecipe(new ItemStack(Cookies.chocPowder, 2),
+		GameRegistry.addShapelessRecipe(new ItemStack(cookieItems.get(ChocolatePowder.class), 2),
 				tempGrinder, cookieItems.get(ChocChip.class));
 
 		// cookie dough
@@ -291,13 +287,13 @@ public class Cookies {
 
 		GameRegistry.addShapelessRecipe(new ItemStack(
 				Cookies.roundDoubleChocChip), Cookies.cookieDough,
-				Cookies.cutterCircle, Cookies.cookieItems.get(ChocChip.class), Cookies.chocPowder);
+				Cookies.cutterCircle, Cookies.cookieItems.get(ChocChip.class), cookieItems.get(ChocolatePowder.class));
 		GameRegistry.addShapelessRecipe(new ItemStack(
 				Cookies.squareDoubleChocChip), Cookies.cookieDough,
-				Cookies.cutterSquare, Cookies.cookieItems.get(ChocChip.class), Cookies.chocPowder);
+				Cookies.cutterSquare, Cookies.cookieItems.get(ChocChip.class), cookieItems.get(ChocolatePowder.class));
 		GameRegistry.addShapelessRecipe(new ItemStack(
 				Cookies.starDoubleChocChip), Cookies.cookieDough,
-				Cookies.cutterStar, Cookies.cookieItems.get(ChocChip.class), Cookies.chocPowder);
+				Cookies.cutterStar, Cookies.cookieItems.get(ChocChip.class), cookieItems.get(ChocolatePowder.class));
 
 		GameRegistry.addShapelessRecipe(
 				new ItemStack(Cookies.squareSugarCookie), Cookies.cookieDough,

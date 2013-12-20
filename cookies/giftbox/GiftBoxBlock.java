@@ -1,21 +1,16 @@
 package qdc.cookies.giftbox;
 
 
-import cpw.mods.fml.common.network.FMLNetworkHandler;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import qdc.cookies.Cookies;
-import qdc.cookies.items.CookieGeneric;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.IInventory;
-import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+import qdc.cookies.Cookies;
+import cpw.mods.fml.common.network.FMLNetworkHandler;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class GiftBoxBlock extends BlockContainer {
 
@@ -29,7 +24,6 @@ public class GiftBoxBlock extends BlockContainer {
 		//this.setBlockBounds(0.4F, 0.0F, 0.4F, 0.6F, 0.3F, 0.6F);
 		//this.setBlockBounds(0.1F, 0.0F, 0.1F, 0.9F, 0.5F, 0.8F);
 	
-		
 		
 		//setTextureName("Cookies:giftbox");
 		//setHardness(2.0F);
@@ -55,6 +49,7 @@ public class GiftBoxBlock extends BlockContainer {
 	public boolean renderAsNormalBlock(){
 		return false;
 	}
+	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister icon){
 		this.blockIcon = icon.registerIcon("cookies:gift_box");
@@ -66,8 +61,9 @@ public class GiftBoxBlock extends BlockContainer {
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
             TileEntity tile = world.getBlockTileEntity(x, y, z);
 
-            if (!(tile instanceof GiftBoxEntity))
-                    return false;
+            if (!(tile instanceof GiftBoxEntity)) {
+				return false;
+			}
 
 
             if (!world.isRemote) {

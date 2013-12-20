@@ -84,6 +84,8 @@ public abstract class AbstractCookieItem extends ItemFood {
 		return this;
 	}
 	
-	
+	/**
+	 * Register the Receipes. 
+	 */
 	protected abstract void registerReceipes();
 }
