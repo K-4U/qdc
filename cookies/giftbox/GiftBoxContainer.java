@@ -21,9 +21,10 @@ public class GiftBoxContainer extends Container{
 		this.giftBoxEntity = entity;
 		
 		
-		this.addSlotToContainer(new Slot( entity, 0,56,17));
-		this.addSlotToContainer(new Slot(entity, 1,56,53));
-
+		this.addSlotToContainer(new Slot( entity, 0,62,19));
+		this.addSlotToContainer(new Slot(entity, 1,95,19));
+		this.addSlotToContainer(new Slot( entity, 2,62,52));
+		this.addSlotToContainer(new Slot(entity, 3,95,52));
 
 	for(int i = 0; i < 3; i++){
 		for (int j = 0; j<9; j++){

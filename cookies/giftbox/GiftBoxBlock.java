@@ -1,6 +1,6 @@
 package qdc.cookies.giftbox;
 
-import cpw.mods.fml.common.Mod.Item;
+
 import cpw.mods.fml.common.network.FMLNetworkHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
