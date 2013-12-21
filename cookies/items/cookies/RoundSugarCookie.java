@@ -2,6 +2,7 @@ package qdc.cookies.items.cookies;
 
 import net.minecraft.item.ItemStack;
 import qdc.cookies.Cookies;
+import qdc.cookies.items.CookieDough;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 /**
@@ -29,7 +30,7 @@ public class RoundSugarCookie extends AbstractCookieItem {
 	protected void registerReceipes() {
 		GameRegistry.addShapelessRecipe(
 				new ItemStack(this),
-				Cookies.cookieDough, // to be replaced with the map 
+				Cookies.cookieItems.get(CookieDough.class), 
 				Cookies.cutterCircle,// to be replaced with the map 
 				Cookies.sugarPowder);// to be replaced with the map 
 	}
