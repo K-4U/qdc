@@ -63,14 +63,10 @@ public class Cookies {
 
 	public static HashMap<Class, Item> cookieItems = new HashMap<Class, Item>();
 	
-	public static Item gbMan;
-	public static Item roundChocChip;
-	public static Item squareChocChip;
 	public static Item starChocChip;
 	public static Item roundDoubleChocChip;
 	public static Item squareDoubleChocChip;
 	public static Item starDoubleChocChip;
-	public static Item roundSugarCookie;
 	public static Item squareSugarCookie;
 	public static Item starSugarCookie;
 	public static Item roundPlainCookie;
@@ -97,6 +93,8 @@ public class Cookies {
 
 	public static final int guiGiftBox = 0;
 
+	public static int gbManId = 1041; // Todo from config 
+	
 	@EventHandler
 	public void load(FMLInitializationEvent e) {
 
@@ -106,7 +104,7 @@ public class Cookies {
 			@Override
 			@SideOnly(Side.CLIENT)
 			public int getTabIconItemIndex() {
-				return gbMan.itemID;
+				return gbManId;
 			}
 		};
 		LanguageRegistry.instance().addStringLocalization(
@@ -205,14 +203,6 @@ public class Cookies {
 		cookieItems.put(GBManCookie.class, new GBManCookie(1041).register());
 		cookieItems.put(RoundSugarCookie.class, new RoundSugarCookie(1024).register());
 		cookieItems.put(SquareChocChip.class, new SquareChocChip(1002).register());
-		 
-		// Temp: until all Receipes use the Map,
-		// then we can get rid of this many statics and use the map
-		
-		gbMan = cookieItems.get(GBManCookie.class);
-		roundChocChip = cookieItems.get(RoundChocChipCookie.class);
-		roundSugarCookie = cookieItems.get(RoundSugarCookie.class);
-		squareChocChip = cookieItems.get(SquareChocChip.class);
 	}
 
 	private void registerTiles() {
@@ -280,8 +270,6 @@ public class Cookies {
 		GameRegistry.addShapelessRecipe(new ItemStack(Cookies.starPlainCookie),
 				Cookies.cookieDough, Cookies.cutterStar);
 
-		GameRegistry.addShapelessRecipe(new ItemStack(Cookies.roundChocChip),
-				Cookies.cookieDough, Cookies.cutterCircle, Cookies.cookieItems.get(ChocChip.class));
 		GameRegistry.addShapelessRecipe(new ItemStack(Cookies.starChocChip),
 				Cookies.cookieDough, Cookies.cutterStar, Cookies.cookieItems.get(ChocChip.class));
 

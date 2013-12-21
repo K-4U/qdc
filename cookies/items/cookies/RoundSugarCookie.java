@@ -4,8 +4,6 @@ import net.minecraft.item.ItemStack;
 import qdc.cookies.Cookies;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-
-
 /**
  * Ginger Bread Man Cookie!
  * 
@@ -35,5 +33,4 @@ public class RoundSugarCookie extends AbstractCookieItem {
 				Cookies.cutterCircle,// to be replaced with the map 
 				Cookies.sugarPowder);// to be replaced with the map 
 	}
-
 }
