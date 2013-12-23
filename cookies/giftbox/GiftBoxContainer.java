@@ -18,10 +18,10 @@ public class GiftBoxContainer extends Container {
 	public GiftBoxContainer(InventoryPlayer inventory, GiftBoxEntity entity) {
 		this.giftBoxEntity = entity;
 
-		this.addSlotToContainer(new Slot(entity, 0, 62, 19));
-		this.addSlotToContainer(new Slot(entity, 1, 95, 19));
-		this.addSlotToContainer(new Slot(entity, 2, 62, 52));
-		this.addSlotToContainer(new Slot(entity, 3, 95, 52));
+		this.addSlotToContainer(new CookieSlot(entity, 0, 62, 19));
+		this.addSlotToContainer(new CookieSlot(entity, 1, 95, 19));
+		this.addSlotToContainer(new CookieSlot(entity, 2, 62, 52));
+		this.addSlotToContainer(new CookieSlot(entity, 3, 95, 52));
 
 		for (int i = 0; i < 3; i++) {
 			for (int j = 0; j < 9; j++) {
@@ -44,21 +44,31 @@ public class GiftBoxContainer extends Container {
 		return this.giftBoxEntity.isUsableByPlayer(entityplayer);
 	}
 	
+	@Override
+	public boolean func_94530_a(ItemStack par1ItemStack, Slot par2Slot) {
+		return super.func_94530_a(par1ItemStack, par2Slot);
+	}
+	
+	@Override
+	public ItemStack slotClick(int par1, int par2, int par3,
+			EntityPlayer par4EntityPlayer) {
+		return super.slotClick(par1, par2, par3, par4EntityPlayer);
+	}
 	
 	//copied method to deal with shift click, does not work but does prevent crash
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer player, int i) {
-	  Slot slot = getSlot(i);
+	  Slot slot = this.getSlot(i);
 
 	  if(slot != null && slot.getHasStack()) {
 	        ItemStack itemstack = slot.getStack();
 	        ItemStack result = itemstack.copy();
 
 	        if(i >= 36) {
-	          if(!mergeItemStack(itemstack, 0, 36, false)) {
+	          if(!this.mergeItemStack(itemstack, 0, 36, false)) {
 	                return null;
 	          }
-	        } else if(!mergeItemStack(itemstack, 36, 36 + giftBoxEntity.getSizeInventory(), false)) {
+	        } else if(!this.mergeItemStack(itemstack, 36, 36 + this.giftBoxEntity.getSizeInventory(), false)) {
 	          return null;
 	        }
 
