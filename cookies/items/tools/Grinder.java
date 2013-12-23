@@ -38,7 +38,9 @@ public class Grinder extends Item {
 		LanguageRegistry.addName(this, "Hand Grinder");
 		
 		GameRegistry.addRecipe(new ItemStack(this),
-				" s ", "wcw", "ooo", 
+				" s ", 
+				"wcw", 
+				"ooo", 
 				'w', Block.wood, 
 				'c', Cookies.cutterCircle, 
 				'o', Block.cobblestone, 

@@ -11,9 +11,9 @@ import cpw.mods.fml.common.registry.GameRegistry;
  * 
  * @author Ralle030583
  */
-public class SquareChocChip extends AbstractCookieItem {
+public class SquareChocChipCookie extends AbstractCookieItem {
 
-	public SquareChocChip(int itemId) {
+	public SquareChocChipCookie(int itemId) {
 		super(itemId);
 	}
 

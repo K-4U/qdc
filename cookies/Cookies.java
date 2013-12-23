@@ -14,19 +14,24 @@ import qdc.cookies.giftbox.GiftBoxRenderer;
 import qdc.cookies.items.ChocChip;
 import qdc.cookies.items.ChocolatePowder;
 import qdc.cookies.items.CookieDough;
-import qdc.cookies.items.CookieGeneric;
 import qdc.cookies.items.CutterGeneric;
 import qdc.cookies.items.GingerPowder;
 import qdc.cookies.items.ItemSeedFoodGinger;
 import qdc.cookies.items.SugarPowder;
+import qdc.cookies.items.cookies.ChristmasTreeCookie;
 import qdc.cookies.items.cookies.GBManCookie;
 import qdc.cookies.items.cookies.RoundChocChipCookie;
 import qdc.cookies.items.cookies.RoundDoubleChocChipCookie;
+import qdc.cookies.items.cookies.RoundPlainCookie;
 import qdc.cookies.items.cookies.RoundSugarCookie;
-import qdc.cookies.items.cookies.SquareChocChip;
+import qdc.cookies.items.cookies.SquareChocChipCookie;
 import qdc.cookies.items.cookies.SquareDoubleChocChipCookie;
+import qdc.cookies.items.cookies.SquarePlainCookie;
+import qdc.cookies.items.cookies.SquareSugarCookie;
 import qdc.cookies.items.cookies.StarChocChipCookie;
 import qdc.cookies.items.cookies.StarDoubleChocChipCookie;
+import qdc.cookies.items.cookies.StarPlainCookie;
+import qdc.cookies.items.cookies.StarSugarCookie;
 import qdc.cookies.items.tools.Grinder;
 import qdc.cookies.plants.GingerBlock;
 import cpw.mods.fml.client.registry.ClientRegistry;
@@ -70,11 +75,6 @@ public class Cookies {
 	 */
 	public static HashMap<Class, Item> cookieItems = new HashMap<Class, Item>();
 	
-	public static Item squareSugarCookie;
-	public static Item starSugarCookie;
-	public static Item roundPlainCookie;
-	public static Item squarePlainCookie;
-	public static Item starPlainCookie;
 	public static Item christmasCookie;
 
 	public static Item cutterCircle;
@@ -134,20 +134,6 @@ public class Cookies {
 	}
 
 	private void registerItems() {
-		squareSugarCookie = new CookieGeneric(1022, 6, 0.5F, false, "sugar_cookie_square");
-		starSugarCookie = new CookieGeneric(1023, 6, 0.5F, false, "sugar_cookie_star");
-		roundPlainCookie = new CookieGeneric(1031, 6, 0.5F, false, "plain_cookie");
-		squarePlainCookie = new CookieGeneric(1032, 6, 0.5F, false, "plain_cookie_square");
-		christmasCookie = new CookieGeneric(1042, 12, 0.5F, false, "stream_xmas_tree");
-		starPlainCookie = new CookieGeneric(1033, 6, 0.5F, false, "plain_cookie_star");
-		
-		this.registerItem(squareSugarCookie, "Square Sugar Cookie");
-		this.registerItem(starSugarCookie, "Star Sugar Cookie");
-		this.registerItem(roundPlainCookie, "Plain Cookie");
-		this.registerItem(squarePlainCookie, "Square Cookie");
-		this.registerItem(starPlainCookie, "Star Cookie");
-		this.registerItem(christmasCookie, "Stream Christmas Cookie");
-
 		// Sugar Powder
 		sugarPowder = new SugarPowder(1102)
 				.setUnlocalizedName("cookies:sugar_powder");
@@ -187,14 +173,20 @@ public class Cookies {
 		cookieItems.put(ChocolatePowder.class,new ChocolatePowder(1103).register());
 		
 		// Adding Cookies!
-		cookieItems.put(StarChocChipCookie.class, new StarChocChipCookie(1003).register());
-		cookieItems.put(StarDoubleChocChipCookie.class, new StarDoubleChocChipCookie(1013).register());
 		cookieItems.put(RoundChocChipCookie.class, new RoundChocChipCookie(1001).register());
+		cookieItems.put(SquareChocChipCookie.class, new SquareChocChipCookie(1002).register());
+		cookieItems.put(StarChocChipCookie.class, new StarChocChipCookie(1003).register());
 		cookieItems.put(RoundDoubleChocChipCookie.class, new RoundDoubleChocChipCookie(1011).register());
-		cookieItems.put(GBManCookie.class, gbManCookie.register());
-		cookieItems.put(RoundSugarCookie.class, new RoundSugarCookie(1024).register());
-		cookieItems.put(SquareChocChip.class, new SquareChocChip(1002).register());
 		cookieItems.put(SquareDoubleChocChipCookie.class, new SquareDoubleChocChipCookie(1012).register());
+		cookieItems.put(StarDoubleChocChipCookie.class, new StarDoubleChocChipCookie(1013).register());
+		cookieItems.put(SquareSugarCookie.class, new SquareSugarCookie(1022).register());
+		cookieItems.put(StarSugarCookie.class, new StarSugarCookie(1023).register());
+		cookieItems.put(RoundSugarCookie.class, new RoundSugarCookie(1024).register());
+		cookieItems.put(RoundPlainCookie.class, new RoundPlainCookie(1031).register());
+		cookieItems.put(SquarePlainCookie.class, new SquarePlainCookie(1032).register());
+		cookieItems.put(StarPlainCookie.class, new StarPlainCookie(1033).register());
+		cookieItems.put(ChristmasTreeCookie.class, new ChristmasTreeCookie(1042).register());
+		cookieItems.put(GBManCookie.class, gbManCookie.register());
 	}
 
 	private void registerTiles() {
@@ -240,33 +232,9 @@ public class Cookies {
 				" x ", 'x', new ItemStack(Item.dyePowder, 1, 4), 'y',
 				Block.wood);
 
-		GameRegistry.addRecipe(new ItemStack(Cookies.cookieItems.get(Grinder.class)), " s ", "wcw",
-				"ooo", 'w', Block.wood, 'c', Cookies.cutterCircle, 'o',
-				Block.cobblestone, 's', Item.stick);
-		GameRegistry.addRecipe(new ItemStack(Cookies.christmasCookie), " g ",
-				"ybr", "dsc", 'g', new ItemStack(Item.dyePowder, 1, 2), 'y',
-				new ItemStack(Item.dyePowder, 1, 11), 'b', new ItemStack(
-						Item.dyePowder, 1, 4), 'r', new ItemStack(
-						Item.dyePowder, 1, 1), 'c', Cookies.cutterXmas, 'd',
-				Cookies.cookieItems.get(CookieDough.class), 's', Cookies.sugarPowder);
-
 		// Cookies
 		GameRegistry.addShapelessRecipe(new ItemStack(Cookies.cookieItems.get(ChocChip.class), 2), // TODO
 				tempGrinder, new ItemStack(Item.dyePowder, 1, 3));
-		GameRegistry.addShapelessRecipe(
-				new ItemStack(Cookies.roundPlainCookie), Cookies.cookieItems.get(CookieDough.class),
-				Cookies.cutterCircle);
-		GameRegistry.addShapelessRecipe(
-				new ItemStack(Cookies.squarePlainCookie), Cookies.cookieItems.get(CookieDough.class),
-				Cookies.cutterSquare);
-		GameRegistry.addShapelessRecipe(new ItemStack(Cookies.starPlainCookie),
-				Cookies.cookieItems.get(CookieDough.class), Cookies.cutterStar);
-
-		GameRegistry.addShapelessRecipe(
-				new ItemStack(Cookies.squareSugarCookie), Cookies.cookieItems.get(CookieDough.class),
-				Cookies.cutterSquare, Cookies.sugarPowder);
-		GameRegistry.addShapelessRecipe(new ItemStack(Cookies.starSugarCookie),
-				Cookies.cookieItems.get(CookieDough.class), Cookies.cutterStar, Cookies.sugarPowder);
 
 	}
 
