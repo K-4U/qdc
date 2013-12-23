@@ -2,6 +2,7 @@ package qdc.cookies.items.cookies;
 
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.Potion;
 import qdc.cookies.Cookies;
 import qdc.cookies.items.CookieDough;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -29,6 +30,12 @@ public class ChristmasTreeCookie extends AbstractCookieItem {
 		return "Stream Christmas Cookie";
 	}
 
+	@Override
+	protected void applyEffects() {
+		super.applyEffects();
+		this.setPotionEffect(Potion.wither.id, 20, 2, 1F);
+	}
+	
 	@Override
 	protected void registerReceipes() {
 		GameRegistry.addRecipe(new ItemStack(this), 

@@ -3,7 +3,6 @@ package qdc.cookies.items;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemFood;
-import net.minecraft.potion.Potion;
 import qdc.cookies.Cookies;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -24,9 +23,6 @@ public class CookieGeneric extends ItemFood{
 
 	
 	private void applyEffects(String cookieName) {
-		if(this.cookieType == "stream_xmas_tree"){
-			this.setPotionEffect(Potion.wither.id, 20, 2, 1F);
-		}
 	}
 
 
