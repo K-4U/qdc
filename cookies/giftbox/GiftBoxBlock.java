@@ -22,7 +22,7 @@ public class GiftBoxBlock extends BlockContainer {
 		// TODO Auto-generated constructor stub
 		this.setCreativeTab(Cookies.cookieTab);
 		//this.setBlockBounds(0.4F, 0.0F, 0.4F, 0.6F, 0.3F, 0.6F);
-		//this.setBlockBounds(0.1F, 0.0F, 0.1F, 0.9F, 0.5F, 0.8F);
+		this.setBlockBounds(0.15F, 0.0F, 0.15F, 0.75F, 0.48F, 0.75F);
 		
 		//setTextureName("Cookies:giftbox");
 		//setHardness(2.0F);
