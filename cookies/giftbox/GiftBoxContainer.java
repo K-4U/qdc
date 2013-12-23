@@ -57,30 +57,40 @@ public class GiftBoxContainer extends Container {
 	
 	//copied method to deal with shift click, does not work but does prevent crash
 	@Override
-	public ItemStack transferStackInSlot(EntityPlayer player, int i) {
-	  Slot slot = this.getSlot(i);
 
-	  if(slot != null && slot.getHasStack()) {
-	        ItemStack itemstack = slot.getStack();
-	        ItemStack result = itemstack.copy();
+	    public ItemStack transferStackInSlot(EntityPlayer par1EntityPlayer, int par2)
+	    {
+	        ItemStack itemstack = null;
+	        Slot slot = (Slot)this.inventorySlots.get(par2);
 
-	        if(i >= 36) {
-	          if(!this.mergeItemStack(itemstack, 0, 36, false)) {
+	        if (slot != null && slot.getHasStack())
+	        {
+	            ItemStack itemstack1 = slot.getStack();
+	            itemstack = itemstack1.copy();
+
+	            if (par2 < this.giftBoxEntity.getSizeInventory())
+	            {
+	                if (!this.mergeItemStack(itemstack1, this.giftBoxEntity.getSizeInventory(), this.inventorySlots.size(), true))
+	                {
+	                    return null;
+	                }
+	            }
+	            else if (!this.mergeItemStack(itemstack1, 0, this.giftBoxEntity.getSizeInventory(), false))
+	            {
 	                return null;
-	          }
-	        } else if(!this.mergeItemStack(itemstack, 36, 36 + this.giftBoxEntity.getSizeInventory(), false)) {
-	          return null;
+	            }
+
+	            if (itemstack1.stackSize == 0)
+	            {
+	                slot.putStack((ItemStack)null);
+	            }
+	            else
+	            {
+	                slot.onSlotChanged();
+	            }
 	        }
 
-	        if(itemstack.stackSize == 0) {
-	          slot.putStack(null);
-	        } else {
-	          slot.onSlotChanged();
-	        }
-	        slot.onPickupFromSlot(player, itemstack); 
-	        return result;
-	  }
-	  return null;
-	}
+	        return itemstack;
+	    }
 
 }
