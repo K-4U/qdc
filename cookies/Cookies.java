@@ -83,8 +83,6 @@ public class Cookies {
 	public static Item cutterGBMan;
 	public static Item cutterXmas;
 
-	public static Item grinder;
-
 	public static Item sugarPowder;
 	public static Item gingerPowder;
 
@@ -182,8 +180,7 @@ public class Cookies {
 		this.registerItem(cutterXmas, "Christmas Tree Cutter");
 
 		// Tools
-		cookieItems.put(Grinder.class, new CookieDough(1320).register());
-		
+		cookieItems.put(Grinder.class, new Grinder(1320).register());
 		// Adding reagents
 		cookieItems.put(CookieDough.class, new CookieDough(1101).register());
 		cookieItems.put(ChocChip.class, new ChocChip(1105).register());
@@ -216,7 +213,7 @@ public class Cookies {
 
 	private void registerReceipes() {
 		// Ground Items
-		ItemStack tempGrinder = new ItemStack(Cookies.grinder, 1,
+		ItemStack tempGrinder = new ItemStack(Cookies.cookieItems.get(Grinder.class), 1,
 				OreDictionary.WILDCARD_VALUE);
 
 		GameRegistry.addShapelessRecipe(new ItemStack(Cookies.gingerPowder, 2),
@@ -243,7 +240,7 @@ public class Cookies {
 				" x ", 'x', new ItemStack(Item.dyePowder, 1, 4), 'y',
 				Block.wood);
 
-		GameRegistry.addRecipe(new ItemStack(Cookies.grinder), " s ", "wcw",
+		GameRegistry.addRecipe(new ItemStack(Cookies.cookieItems.get(Grinder.class)), " s ", "wcw",
 				"ooo", 'w', Block.wood, 'c', Cookies.cutterCircle, 'o',
 				Block.cobblestone, 's', Item.stick);
 		GameRegistry.addRecipe(new ItemStack(Cookies.christmasCookie), " g ",
