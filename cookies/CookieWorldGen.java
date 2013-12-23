@@ -20,8 +20,8 @@ public  class CookieWorldGen implements IWorldGenerator {
                 
         	
         	BiomeGenBase b = world.getBiomeGenForCoords(chunkX, chunkZ);
-               if(b.biomeName.equals("Forest")) {
-                   
+            //   if(b.biomeName.equalsIgnoreCase("forest")) {
+        	if(b == BiomeGenBase.forest) {
           
             	   int x = chunkX*16 + random.nextInt(16);
             	   int y = 0;
@@ -30,7 +30,9 @@ public  class CookieWorldGen implements IWorldGenerator {
             	   for (int i=0; i<150; i++){
             		   int bID = world.getBlockId(x, i, z);
             		   if(bID == Block.grass.blockID){
-                    	   world.setBlock(x, i+1, z, Cookies.gingerBlock.blockID);
+                    	 //  world.setBlock(x, i+1, z, Cookies.gingerBlock.blockID);
+            			   world.setBlock(x, i+1, z, Cookies.gingerBlock.blockID);
+            			  // world.setBlock(x+2, i+1, z, Block.obsidian.blockID);
 
             			   break;
             		   }
