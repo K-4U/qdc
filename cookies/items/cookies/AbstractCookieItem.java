@@ -18,7 +18,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 public abstract class AbstractCookieItem extends ItemFood {
 
 	/** 
-	 * Constructor. TODO NO FIX ITEMID'S!
+	 * Constructor. 
 	 * @param itemId
 	 * @param hunger
 	 * @param saturationModifier
@@ -28,6 +28,15 @@ public abstract class AbstractCookieItem extends ItemFood {
 		this.initDefaultCookieValues();
 	}
 
+	/** 
+	 * Constructor with ItemId & Hunger and Default Saturation. 
+	 * @param itemId
+	 * @param hunger
+	 */
+	public AbstractCookieItem(int itemId, int hunger) {
+		this(itemId, hunger, 0.5F);
+	}
+	
 	/**
 	 * Constructor for a Default Cookie
 	 * @param itemId
