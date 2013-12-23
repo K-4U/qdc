@@ -75,8 +75,6 @@ public class Cookies {
 	 */
 	public static HashMap<Class, Item> cookieItems = new HashMap<Class, Item>();
 	
-	public static Item christmasCookie;
-
 	public static Item cutterCircle;
 	public static Item cutterSquare;
 	public static Item cutterStar;
