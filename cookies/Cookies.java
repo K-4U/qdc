@@ -17,7 +17,6 @@ import qdc.cookies.items.CookieDough;
 import qdc.cookies.items.CookieGeneric;
 import qdc.cookies.items.CutterGeneric;
 import qdc.cookies.items.GingerPowder;
-import qdc.cookies.items.Grinder;
 import qdc.cookies.items.ItemSeedFoodGinger;
 import qdc.cookies.items.SugarPowder;
 import qdc.cookies.items.cookies.GBManCookie;
@@ -28,6 +27,7 @@ import qdc.cookies.items.cookies.SquareChocChip;
 import qdc.cookies.items.cookies.SquareDoubleChocChipCookie;
 import qdc.cookies.items.cookies.StarChocChipCookie;
 import qdc.cookies.items.cookies.StarDoubleChocChipCookie;
+import qdc.cookies.items.tools.Grinder;
 import qdc.cookies.plants.GingerBlock;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.common.Mod;
@@ -181,9 +181,8 @@ public class Cookies {
 		this.registerItem(cutterGBMan, "Gingerbread Man Cutter");
 		this.registerItem(cutterXmas, "Christmas Tree Cutter");
 
-		// Grinder
-		grinder = new Grinder(1320).setUnlocalizedName("cookies:hand_grinder");
-		this.registerItem(grinder, "Hand Grinder");
+		// Tools
+		cookieItems.put(Grinder.class, new CookieDough(1320).register());
 		
 		// Adding reagents
 		cookieItems.put(CookieDough.class, new CookieDough(1101).register());

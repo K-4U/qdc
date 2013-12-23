@@ -3,6 +3,7 @@ package qdc.cookies;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
+import qdc.cookies.items.tools.Grinder;
 import cpw.mods.fml.common.ICraftingHandler;
 
 public class CookieCraftingHandler implements ICraftingHandler {
@@ -16,9 +17,9 @@ public class CookieCraftingHandler implements ICraftingHandler {
 				if(craftMatrix.getStackInSlot(i) != null){
 					ItemStack stack = craftMatrix.getStackInSlot(i);
 					
-					if(stack.getItem() != null && stack.getItem() == Cookies.grinder){
+					if(stack.getItem() != null && stack.getItem() == Cookies.cookieItems.get(Grinder.class)){
 				
-							ItemStack newStack = new ItemStack(Cookies.grinder, 2,(stack.getItemDamage()+1));
+							ItemStack newStack = new ItemStack(Cookies.cookieItems.get(Grinder.class), 2,(stack.getItemDamage()+1));
 							if(newStack.getItemDamage() >= newStack.getMaxDamage()){
 								newStack.stackSize--;
 							}
