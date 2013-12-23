@@ -25,6 +25,7 @@ import qdc.cookies.items.cookies.RoundChocChipCookie;
 import qdc.cookies.items.cookies.RoundDoubleChocChipCookie;
 import qdc.cookies.items.cookies.RoundSugarCookie;
 import qdc.cookies.items.cookies.SquareChocChip;
+import qdc.cookies.items.cookies.SquareDoubleChocChipCookie;
 import qdc.cookies.items.cookies.StarChocChipCookie;
 import qdc.cookies.items.cookies.StarDoubleChocChipCookie;
 import qdc.cookies.plants.GingerBlock;
@@ -197,6 +198,7 @@ public class Cookies {
 		cookieItems.put(GBManCookie.class, gbManCookie.register());
 		cookieItems.put(RoundSugarCookie.class, new RoundSugarCookie(1024).register());
 		cookieItems.put(SquareChocChip.class, new SquareChocChip(1002).register());
+		cookieItems.put(SquareDoubleChocChipCookie.class, new SquareDoubleChocChipCookie(1012).register());
 	}
 
 	private void registerTiles() {

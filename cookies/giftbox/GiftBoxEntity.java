@@ -141,8 +141,10 @@ public class GiftBoxEntity extends TileEntity implements ISidedInventory {
 
 	@Override
 	public String getInvName() {
+		//return this.isInvNameLocalized() ? this.inventoryName
+		//		: "container.hopper";
 		return this.isInvNameLocalized() ? this.inventoryName
-				: "container.hopper";
+				: "GiftBox";
 	}
 
 	@Override
