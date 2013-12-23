@@ -5,6 +5,7 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
+import qdc.cookies.items.cookies.AbstractCookieItem;
 
 public class GiftBoxContainer extends Container {
 
@@ -53,6 +54,17 @@ public class GiftBoxContainer extends Container {
 	public ItemStack slotClick(int par1, int par2, int par3,
 			EntityPlayer par4EntityPlayer) {
 		return super.slotClick(par1, par2, par3, par4EntityPlayer);
+	}
+	
+	@Override
+	protected boolean mergeItemStack(ItemStack par1ItemStack, int par2,
+			int par3, boolean par4) {
+		
+		if (!(par1ItemStack.getItem() instanceof AbstractCookieItem)){
+			return false;
+		}
+		
+		return super.mergeItemStack(par1ItemStack, par2, par3, par4);
 	}
 	
 	//copied method to deal with shift click, does not work but does prevent crash
