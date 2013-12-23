@@ -2,11 +2,6 @@ package qdc.cookies;
 
 import java.util.Random;
 
-
-
-
-
-
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
@@ -18,11 +13,9 @@ public  class CookieWorldGen implements IWorldGenerator {
         @Override
         public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
                 
-        	
-        	BiomeGenBase b = world.getBiomeGenForCoords(chunkX, chunkZ);
-            //   if(b.biomeName.equalsIgnoreCase("forest")) {
-        	if(b == BiomeGenBase.forest) {
-          
+        	BiomeGenBase b = world.getBiomeGenForCoords((chunkX*16)+8, (chunkZ*16)+8); // *16+8 = Middle of Chunk
+
+        	if(b.biomeID == BiomeGenBase.forest.biomeID){
             	   int x = chunkX*16 + random.nextInt(16);
             	   int y = 0;
             	   int z = chunkZ*16 + random.nextInt(16);
