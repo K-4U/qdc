@@ -15,8 +15,10 @@ import qdc.cookies.items.ChocChip;
 import qdc.cookies.items.ChocolatePowder;
 import qdc.cookies.items.CookieDough;
 import qdc.cookies.items.CutterGeneric;
+import qdc.cookies.items.GiftboxPlain;
 import qdc.cookies.items.GingerPowder;
 import qdc.cookies.items.ItemSeedFoodGinger;
+import qdc.cookies.items.RibbonYellow;
 import qdc.cookies.items.SugarPowder;
 import qdc.cookies.items.cookies.ChristmasTreeCookie;
 import qdc.cookies.items.cookies.GBManCookie;
@@ -47,7 +49,7 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-@Mod(modid = Cookies.modid, name = "Cookies!", version = "0.0.0")
+@Mod(modid = Cookies.modid, name = "Cookies!", version = "Aplha 0.0.1")
 @NetworkMod(clientSideRequired = true, serverSideRequired = true)
 /**
  * 
@@ -88,6 +90,8 @@ public class Cookies {
 	public static Item ginger;
 
 	public static Block giftBox;
+	public static Item giftboxPlain;
+	public static Item yellowRibbon;
 
 	public static final int guiGiftBox = 0;
 
@@ -132,6 +136,14 @@ public class Cookies {
 	}
 
 	private void registerItems() {
+		
+		//Giftbox Accessories
+		
+		yellowRibbon = new RibbonYellow(1401).setUnlocalizedName("cookies:ribbon_yellow");
+		this.registerItem(yellowRibbon, "Yellow Ribbon");
+		giftboxPlain  = new GiftboxPlain(1403).setUnlocalizedName("cookies:plain_box");
+		this.registerItem(giftboxPlain, "Plain Box");
+		
 		// Sugar Powder
 		sugarPowder = new SugarPowder(1102)
 				.setUnlocalizedName("cookies:sugar_powder");
@@ -154,7 +166,7 @@ public class Cookies {
 		cutterCircle = new CutterGeneric(1301, "cookie_cutter_circle");
 		cutterSquare = new CutterGeneric(1302, "cookie_cutter_square");
 		cutterStar   = new CutterGeneric(1304, "cookie_cutter_star");
-		cutterGBMan  = new CutterGeneric(1305, "cookie_cutter_gingerbread_man");
+		cutterGBMan  = new CutterGeneric(1305, "cookie_cutter_GBMan");
 		cutterXmas   = new CutterGeneric(1306, "xmas_tree_cutter");
 		
 		this.registerItem(cutterCircle, "Round Cookie Cutter");
@@ -234,6 +246,14 @@ public class Cookies {
 		GameRegistry.addShapelessRecipe(new ItemStack(Cookies.cookieItems.get(ChocChip.class), 2), // TODO
 				tempGrinder, new ItemStack(Item.dyePowder, 1, 3));
 
+		
+		
+		//GiftBox
+		
+
+		GameRegistry.addRecipe(new ItemStack(Cookies.yellowRibbon),"s  "," sy"," ys",'s',Item.silk,'y',new ItemStack(Item.dyePowder, 1, 11));
+		GameRegistry.addRecipe(new ItemStack(Cookies.giftboxPlain), "ppp","p p","ppp",'p',Item.paper);
+		GameRegistry.addShapelessRecipe(new ItemStack(Cookies.giftBox), Cookies.giftboxPlain,Cookies.yellowRibbon);
 	}
 
 	public void registerBlock(Block block, String name) {
