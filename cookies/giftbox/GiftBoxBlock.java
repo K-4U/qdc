@@ -19,7 +19,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class GiftBoxBlock extends BlockContainer {
 
-	
+	GiftBoxEntity tempTile;
 
 	public GiftBoxBlock(int par1, Material par2Material) {
 		super(par1, par2Material);
@@ -76,9 +76,15 @@ public class GiftBoxBlock extends BlockContainer {
             return true;
     }
 	@Override
-    public void onBlockDestroyedByPlayer(World par1World, int par2, int par3, int par4, int par5) {
-		
+    public void onBlockDestroyedByPlayer(World world, int x, int y, int z, int par5) {
+		 tempTile = (GiftBoxEntity) world.getBlockTileEntity(x, y, z);
+		// GiftBoxEntity tile = (GiftBoxEntity) world.getBlockTileEntity(x, y, z);
+		 int a = 1;
 	}
+	
+
+	
+	
 	
 	@Override
     public ArrayList<ItemStack> getBlockDropped(World world, int x, int y, int z, int metadata, int fortune)
@@ -93,9 +99,14 @@ public class GiftBoxBlock extends BlockContainer {
 		//need to pull nbtdata from existing tile and write to item nbt
         NBTTagCompound par1NBTTagCompound = new NBTTagCompound();
         
-		//this code does write nbt to the item, i can see it in debugging
-        tile.writeToNBT(par1NBTTagCompound);
-        temp.setTagCompound(par1NBTTagCompound);
+        
+        
+        
+        //get and set nbt data?
+        tempTile = new GiftBoxEntity();
+        tempTile.writeToNBT(par1NBTTagCompound);
+        temp.readFromNBT(par1NBTTagCompound);
+        //   temp.setTagCompound(par1NBTTagCompound);
         
         //returns the items to be dropped
         ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
@@ -125,6 +136,8 @@ public class GiftBoxBlock extends BlockContainer {
         if (par6ItemStack.getTagCompound() != null){
         	tile.readFromNBT(par6ItemStack.getTagCompound());
         }
+        
+        
     
     }
 
