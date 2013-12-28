@@ -1,5 +1,6 @@
 package qdc.cookies.giftbox;
 
+import net.minecraft.block.BlockSand;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
@@ -22,6 +23,20 @@ public class GiftBoxEntity extends TileEntity implements ISidedInventory {
 
 	}
 
+	
+	
+	
+	//test to add items automatically:
+	
+	public void fillBox(int id, int qty){
+		ItemStack tempstack = new ItemStack(id,qty,0);
+		this.slots[1] = tempstack;
+		
+	}
+	
+	
+	
+	
 	/**
 	 * Reads a tile entity from NBT.
 	 */
