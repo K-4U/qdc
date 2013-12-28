@@ -79,9 +79,9 @@ public class GiftBoxBlock extends BlockContainer {
 	
 	public void breakBlock(World par1World, int par2, int par3, int par4, int par5, int par6)
     {
-		tempTile = (GiftBoxEntity) par1World.getBlockTileEntity(par2, par3, par4);
+		this.tempTile = (GiftBoxEntity) par1World.getBlockTileEntity(par2, par3, par4);
 		int a = 1;
-        if (hasTileEntity(par6) && !(this instanceof BlockContainer))
+        if (this.hasTileEntity(par6) && !(this instanceof BlockContainer))
         {
             par1World.removeBlockTileEntity(par2, par3, par4);
         }
@@ -106,32 +106,14 @@ public class GiftBoxBlock extends BlockContainer {
 		//need to pull nbtdata from existing tile and write to item nbt
         NBTTagCompound par1NBTTagCompound = new NBTTagCompound();
         
-        
-        
-        
         //get and set nbt data?
-       
-        tempTile.writeToNBT(par1NBTTagCompound);
-        temp.readFromNBT(par1NBTTagCompound);
-        //   temp.setTagCompound(par1NBTTagCompound);
+        this.tempTile.writeToNBT(par1NBTTagCompound);
+        temp.setTagCompound(par1NBTTagCompound);
         
         //returns the items to be dropped
         ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
         ret.add(temp);
         return ret;
-		
-		//ItemStack temp = new ItemStack(Cookies.giftBox,1);
-//		int[] boxIds = { 1, 7, 2, 3 };
-//		int[] boxQTY = { 1, 2, 3, 4 };
-//		
-//		temp.setTagCompound( new NBTTagCompound( ));
-//		temp.stackTagCompound.setIntArray( "slotIds", boxIds );
-//		temp.stackTagCompound.setIntArray( "slotContent", boxQTY );
-//        
-		
-	    //ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
-		//ret.add(temp);
-		//return ret;
     }
 	
 	
@@ -142,10 +124,10 @@ public class GiftBoxBlock extends BlockContainer {
         //set item nbt data
         if (par6ItemStack.getTagCompound() != null){
         	tile.readFromNBT(par6ItemStack.getTagCompound());
+        	tile.xCoord = x;
+        	tile.yCoord = y;
+        	tile.zCoord = z;
         }
-        
-        
-    
     }
 
 }
