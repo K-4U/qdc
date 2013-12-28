@@ -9,6 +9,7 @@ import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import qdc.cookies.Cookies;
@@ -19,8 +20,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class GiftBoxBlock extends BlockContainer {
 
 	
-	
-	
+
 	public GiftBoxBlock(int par1, Material par2Material) {
 		super(par1, par2Material);
 		
@@ -77,11 +77,9 @@ public class GiftBoxBlock extends BlockContainer {
     }
 	@Override
     public void onBlockDestroyedByPlayer(World par1World, int par2, int par3, int par4, int par5) {
-
-		
 		
 	}
-
+	
 	@Override
     public ArrayList<ItemStack> getBlockDropped(World world, int x, int y, int z, int metadata, int fortune)
     {
@@ -89,36 +87,29 @@ public class GiftBoxBlock extends BlockContainer {
 		ItemStack temp = new ItemStack(Cookies.giftBox,1);
 		
 		
-		
 		//retrive the entity
         GiftBoxEntity tile = (GiftBoxEntity) world.getBlockTileEntity(x, y, z);
 
 		//need to pull nbtdata from existing tile and write to item nbt
-		temp.setTagCompound(tile.readFromNBT(null));
-		
-		
-		//returns the items to be dropped
-	    ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
-		ret.add(temp);
-		return ret;
-		
-		
-		
-		
+        NBTTagCompound par1NBTTagCompound = new NBTTagCompound();
+        
 		//this code does write nbt to the item, i can see it in debugging
+        tile.writeToNBT(par1NBTTagCompound);
+        temp.setTagCompound(par1NBTTagCompound);
+        
+        //returns the items to be dropped
+        ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
+        ret.add(temp);
+        return ret;
 		
 		//ItemStack temp = new ItemStack(Cookies.giftBox,1);
-		//int[] boxIds = { 1, 7, 2, 3 };
-		//int[] boxQTY = { 1, 2, 3, 4 };
-		
-		
-		//temp.setTagCompound( new NBTTagCompound( ));
-		
-		
-		
-		//temp.stackTagCompound.setIntArray( "slotIds", boxIds );
-		//temp.stackTagCompound.setIntArray( "slotContent", boxQTY );
-		
+//		int[] boxIds = { 1, 7, 2, 3 };
+//		int[] boxQTY = { 1, 2, 3, 4 };
+//		
+//		temp.setTagCompound( new NBTTagCompound( ));
+//		temp.stackTagCompound.setIntArray( "slotIds", boxIds );
+//		temp.stackTagCompound.setIntArray( "slotContent", boxQTY );
+//        
 		
 	    //ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
 		//ret.add(temp);
@@ -131,15 +122,11 @@ public class GiftBoxBlock extends BlockContainer {
     	//get tile at location
         GiftBoxEntity tile = (GiftBoxEntity) par1World.getBlockTileEntity(x, y, z);
         //set item nbt data
-        tile.writeToNBT(par6ItemStack.readFromNBT(null));
-
+        if (par6ItemStack.getTagCompound() != null){
+        	tile.readFromNBT(par6ItemStack.getTagCompound());
+        }
     
-}
-
-
-    
-    
-
+    }
 
 }
 
