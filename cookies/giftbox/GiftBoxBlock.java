@@ -76,11 +76,18 @@ public class GiftBoxBlock extends BlockContainer {
             return true;
     }
 	@Override
-    public void onBlockDestroyedByPlayer(World world, int x, int y, int z, int par5) {
-		 tempTile = (GiftBoxEntity) world.getBlockTileEntity(x, y, z);
-		// GiftBoxEntity tile = (GiftBoxEntity) world.getBlockTileEntity(x, y, z);
-		 int a = 1;
-	}
+	
+	public void breakBlock(World par1World, int par2, int par3, int par4, int par5, int par6)
+    {
+		tempTile = (GiftBoxEntity) par1World.getBlockTileEntity(par2, par3, par4);
+		int a = 1;
+        if (hasTileEntity(par6) && !(this instanceof BlockContainer))
+        {
+            par1World.removeBlockTileEntity(par2, par3, par4);
+        }
+    }
+	
+ 
 	
 
 	
@@ -103,7 +110,7 @@ public class GiftBoxBlock extends BlockContainer {
         
         
         //get and set nbt data?
-        tempTile = new GiftBoxEntity();
+       
         tempTile.writeToNBT(par1NBTTagCompound);
         temp.readFromNBT(par1NBTTagCompound);
         //   temp.setTagCompound(par1NBTTagCompound);
