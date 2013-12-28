@@ -2,17 +2,13 @@ package qdc.cookies.giftbox;
 
 
 import java.util.ArrayList;
-import java.util.Stack;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import qdc.cookies.Cookies;
@@ -95,7 +91,7 @@ public class GiftBoxBlock extends BlockContainer {
 		
 		
 		//retrive the entity
-        GiftBoxEntity tile = (GiftBoxEntity) World.getBlockTileEntity(x, y, z);
+        GiftBoxEntity tile = (GiftBoxEntity) world.getBlockTileEntity(x, y, z);
 
 		//need to pull nbtdata from existing tile and write to item nbt
 		temp.setTagCompound(tile.readFromNBT(null));
@@ -133,11 +129,9 @@ public class GiftBoxBlock extends BlockContainer {
     @Override
     public void onBlockPlacedBy(World par1World, int x, int y, int z, EntityLivingBase par5EntityLivingBase, ItemStack par6ItemStack) {
     	//get tile at location
-        GiftBoxEntity tile = (GiftBoxEntity) World.getBlockTileEntity(x, y, z);
+        GiftBoxEntity tile = (GiftBoxEntity) par1World.getBlockTileEntity(x, y, z);
         //set item nbt data
         tile.writeToNBT(par6ItemStack.readFromNBT(null));
-
-        
 
     
 }
