@@ -94,10 +94,11 @@ public class Cookies {
 	public static Block giftBox;
 	public static Item giftboxPlain;
 	public static Item yellowRibbon;
+	
+	public static GBManCookie gbManCookie = new GBManCookie(1041);
 
 	public static final int guiGiftBox = 0;
 
-	public static GBManCookie gbManCookie = new GBManCookie(1041);
 	
 	
 	@EventHandler
@@ -153,35 +154,35 @@ public class Cookies {
 		
 		//Giftbox Accessories
 		
-		yellowRibbon = new RibbonYellow(1401).setUnlocalizedName("cookies:ribbon_yellow");
+		yellowRibbon = new RibbonYellow(CookieIDs.ribbonYellow_actual).setUnlocalizedName("cookies:ribbon_yellow");
 		this.registerItem(yellowRibbon, "Yellow Ribbon");
-		giftboxPlain  = new GiftboxPlain(1403).setUnlocalizedName("cookies:plain_box");
+		giftboxPlain  = new GiftboxPlain(CookieIDs.giftboxPlain_actual).setUnlocalizedName("cookies:plain_box");
 		this.registerItem(giftboxPlain, "Plain Box");
 		
 		// Sugar Powder
-		sugarPowder = new SugarPowder(1102)
+		sugarPowder = new SugarPowder(CookieIDs.sugarPowder_default)
 				.setUnlocalizedName("cookies:sugar_powder");
 		this.registerItem(sugarPowder, "Sugar Powder");
 
 		// Ginger Powder
-		gingerPowder = new GingerPowder(1104).setUnlocalizedName(
+		gingerPowder = new GingerPowder(CookieIDs.gingerPowder_actual).setUnlocalizedName(
 				"cookies:grated_ginger").setCreativeTab(Cookies.cookieTab);
 		this.registerItem(gingerPowder, "Ginger Powder");
 
 		// Register Ginger Plant
 		gingerBlock = new GingerBlock(CookieIDs.gingerBlock_actual).setUnlocalizedName("ginger");
 		this.registerBlock(gingerBlock, "Ginger");
-		ginger = new ItemSeedFoodGinger(1202, 4, 0.3F, gingerBlock.blockID,
+		ginger = new ItemSeedFoodGinger(CookieIDs.ginger_actual, 4, 0.3F, gingerBlock.blockID,
 				Block.tilledField.blockID).setUnlocalizedName("cookies:ginger")
 				.setCreativeTab(Cookies.cookieTab);
 		this.registerItem(ginger, "Ginger");
 
 		// Cutters
-		cutterCircle = new CutterGeneric(1301, "cookie_cutter_circle");
-		cutterSquare = new CutterGeneric(1302, "cookie_cutter_square");
-		cutterStar   = new CutterGeneric(1304, "cookie_cutter_star");
-		cutterGBMan  = new CutterGeneric(1305, "cookie_cutter_GBMan");
-		cutterXmas   = new CutterGeneric(1306, "xmas_tree_cutter");
+		cutterCircle = new CutterGeneric(CookieIDs.roundCutter_actual, "cookie_cutter_circle");
+		cutterSquare = new CutterGeneric(CookieIDs.squareCutter_actual, "cookie_cutter_square");
+		cutterStar   = new CutterGeneric(CookieIDs.starCutter_actual, "cookie_cutter_star");
+		cutterGBMan  = new CutterGeneric(CookieIDs.gbmanCutter_actual, "cookie_cutter_GBMan");
+		cutterXmas   = new CutterGeneric(CookieIDs.treeCutter_actual, "xmas_tree_cutter");
 		
 		this.registerItem(cutterCircle, "Round Cookie Cutter");
 		this.registerItem(cutterSquare, "Square Cookie Cutter");
@@ -190,26 +191,26 @@ public class Cookies {
 		this.registerItem(cutterXmas, "Christmas Tree Cutter");
 
 		// Tools
-		cookieItems.put(Grinder.class, new Grinder(1320).register());
+		cookieItems.put(Grinder.class, new Grinder(CookieIDs.grinder_actual).register());
 		// Adding reagents
-		cookieItems.put(CookieDough.class, new CookieDough(1101).register());
-		cookieItems.put(ChocChip.class, new ChocChip(1105).register());
-		cookieItems.put(ChocolatePowder.class,new ChocolatePowder(1103).register());
+		cookieItems.put(CookieDough.class, new CookieDough(CookieIDs.cookieDough_actual).register());
+		cookieItems.put(ChocChip.class, new ChocChip(CookieIDs.ChocChip_actual).register());
+		cookieItems.put(ChocolatePowder.class,new ChocolatePowder(CookieIDs.ChocPowder_actual).register());
 		
 		// Adding Cookies!
-		cookieItems.put(RoundChocChipCookie.class, new RoundChocChipCookie(1001).register());
-		cookieItems.put(SquareChocChipCookie.class, new SquareChocChipCookie(1002).register());
-		cookieItems.put(StarChocChipCookie.class, new StarChocChipCookie(1003).register());
-		cookieItems.put(RoundDoubleChocChipCookie.class, new RoundDoubleChocChipCookie(1011).register());
-		cookieItems.put(SquareDoubleChocChipCookie.class, new SquareDoubleChocChipCookie(1012).register());
-		cookieItems.put(StarDoubleChocChipCookie.class, new StarDoubleChocChipCookie(1013).register());
-		cookieItems.put(SquareSugarCookie.class, new SquareSugarCookie(1022).register());
-		cookieItems.put(StarSugarCookie.class, new StarSugarCookie(1023).register());
-		cookieItems.put(RoundSugarCookie.class, new RoundSugarCookie(1024).register());
-		cookieItems.put(RoundPlainCookie.class, new RoundPlainCookie(1031).register());
-		cookieItems.put(SquarePlainCookie.class, new SquarePlainCookie(1032).register());
-		cookieItems.put(StarPlainCookie.class, new StarPlainCookie(1033).register());
-		cookieItems.put(ChristmasTreeCookie.class, new ChristmasTreeCookie(1042).register());
+		cookieItems.put(RoundChocChipCookie.class, new RoundChocChipCookie(CookieIDs.roundCC_actual).register());
+		cookieItems.put(SquareChocChipCookie.class, new SquareChocChipCookie(CookieIDs.squareCC_actual).register());
+		cookieItems.put(StarChocChipCookie.class, new StarChocChipCookie(CookieIDs.starCC_actual).register());
+		cookieItems.put(RoundDoubleChocChipCookie.class, new RoundDoubleChocChipCookie(CookieIDs.roundDCC_actual).register());
+		cookieItems.put(SquareDoubleChocChipCookie.class, new SquareDoubleChocChipCookie(CookieIDs.squareDCC_actual).register());
+		cookieItems.put(StarDoubleChocChipCookie.class, new StarDoubleChocChipCookie(CookieIDs.starDCC_actual).register());
+		cookieItems.put(SquareSugarCookie.class, new SquareSugarCookie(CookieIDs.squareSugar_actual).register());
+		cookieItems.put(StarSugarCookie.class, new StarSugarCookie(CookieIDs.starSugar_actual).register());
+		cookieItems.put(RoundSugarCookie.class, new RoundSugarCookie(CookieIDs.roundSugar_actual).register());
+		cookieItems.put(RoundPlainCookie.class, new RoundPlainCookie(CookieIDs.roundPlain_actual).register());
+		cookieItems.put(SquarePlainCookie.class, new SquarePlainCookie(CookieIDs.squarePlain_actual).register());
+		cookieItems.put(StarPlainCookie.class, new StarPlainCookie(CookieIDs.starPlain_actual).register());
+		cookieItems.put(ChristmasTreeCookie.class, new ChristmasTreeCookie(CookieIDs.treeCookie_actual).register());
 		cookieItems.put(GBManCookie.class, gbManCookie.register());
 	}
 
