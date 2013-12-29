@@ -7,8 +7,8 @@ import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.common.Configuration;
 import net.minecraftforge.oredict.OreDictionary;
+import qdc.cookies.consts.CookieIDs;
 import qdc.cookies.giftbox.GiftBoxBlock;
 import qdc.cookies.giftbox.GiftBoxEntity;
 import qdc.cookies.giftbox.GiftBoxRenderer;
@@ -102,7 +102,7 @@ public class Cookies {
 	
 	@EventHandler
 	public static void preInit ( FMLPreInitializationEvent event ) {
-	ConfigHandler.init(event.getSuggestedConfigurationFile());
+		ConfigHandler.init(event.getSuggestedConfigurationFile());
 	}
 	
 	@EventHandler
@@ -132,7 +132,7 @@ public class Cookies {
 		// Register Guis?
 		NetworkRegistry.instance().registerGuiHandler(this, new GuiHandler());
 
-	
+		
 		
 		// Registering Items
 		this.registerItems();
@@ -169,7 +169,7 @@ public class Cookies {
 		this.registerItem(gingerPowder, "Ginger Powder");
 
 		// Register Ginger Plant
-		gingerBlock = new GingerBlock(1201).setUnlocalizedName("Ginger");
+		gingerBlock = new GingerBlock(CookieIDs.gingerBlock_actual).setUnlocalizedName("ginger");
 		this.registerBlock(gingerBlock, "Ginger");
 		ginger = new ItemSeedFoodGinger(1202, 4, 0.3F, gingerBlock.blockID,
 				Block.tilledField.blockID).setUnlocalizedName("cookies:ginger")
