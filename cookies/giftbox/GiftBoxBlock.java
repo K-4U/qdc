@@ -99,15 +99,9 @@ public class GiftBoxBlock extends BlockContainer {
 		//create new giftbox to be dropped
 		ItemStack temp = new ItemStack(Cookies.giftBox,1);
 		
-		
-		//retrive the entity
-        GiftBoxEntity tile = (GiftBoxEntity) world.getBlockTileEntity(x, y, z);
-
-		//need to pull nbtdata from existing tile and write to item nbt
-        NBTTagCompound par1NBTTagCompound = new NBTTagCompound();
-        
         // Save filled Boxes to NBT
         if (!this.tempTile.isEmpty()){
+        	NBTTagCompound par1NBTTagCompound = new NBTTagCompound();
         	this.tempTile.writeToNBT(par1NBTTagCompound);
         	temp.setTagCompound(par1NBTTagCompound);
         }
