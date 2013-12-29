@@ -4,6 +4,7 @@ import net.minecraft.item.ItemStack;
 import qdc.cookies.Cookies;
 import qdc.cookies.items.ChocChip;
 import qdc.cookies.items.CookieDough;
+import qdc.cookies.items.tools.CutterSquare;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 /**
@@ -30,8 +31,8 @@ public class SquareChocChipCookie extends AbstractCookieItem {
 	@Override
 	protected void registerReceipes() {
 		GameRegistry.addShapelessRecipe(new ItemStack(this),
-				Cookies.cookieItems.get(CookieDough.class), 
-				Cookies.cutterSquare, // to be replaced with the map  
+				Cookies.cookieItems.get(CookieDough.class),
+				Cookies.cookieItems.get(CutterSquare.class),
 				Cookies.cookieItems.get(ChocChip.class));
 	}
 

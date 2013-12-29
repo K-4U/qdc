@@ -3,6 +3,7 @@ package qdc.cookies.items.cookies;
 import net.minecraft.item.ItemStack;
 import qdc.cookies.Cookies;
 import qdc.cookies.items.CookieDough;
+import qdc.cookies.items.tools.CutterRound;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 /**
@@ -31,7 +32,7 @@ public class RoundPlainCookie extends AbstractCookieItem {
 		GameRegistry.addShapelessRecipe(
 				new ItemStack(this),
 				Cookies.cookieItems.get(CookieDough.class),
-				Cookies.cutterCircle);
+				Cookies.cookieItems.get(CutterRound.class));
 	}
 
 }

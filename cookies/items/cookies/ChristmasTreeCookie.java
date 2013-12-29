@@ -5,6 +5,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import qdc.cookies.Cookies;
 import qdc.cookies.items.CookieDough;
+import qdc.cookies.items.tools.CutterXmasTree;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 
@@ -46,7 +47,7 @@ public class ChristmasTreeCookie extends AbstractCookieItem {
 				'y', new ItemStack(Item.dyePowder, 1, 11), 
 				'b', new ItemStack(Item.dyePowder, 1, 4),
 				'r', new ItemStack(Item.dyePowder, 1, 1), 
-				'c', Cookies.cutterXmas, 
+				'c', Cookies.cookieItems.get(CutterXmasTree.class), 
 				'd', Cookies.cookieItems.get(CookieDough.class), 
 				's', Cookies.sugarPowder);
 	}

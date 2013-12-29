@@ -15,7 +15,6 @@ import qdc.cookies.giftbox.GiftBoxRenderer;
 import qdc.cookies.items.ChocChip;
 import qdc.cookies.items.ChocolatePowder;
 import qdc.cookies.items.CookieDough;
-import qdc.cookies.items.CutterGeneric;
 import qdc.cookies.items.GiftboxPlain;
 import qdc.cookies.items.GingerPowder;
 import qdc.cookies.items.ItemSeedFoodGinger;
@@ -35,6 +34,11 @@ import qdc.cookies.items.cookies.StarChocChipCookie;
 import qdc.cookies.items.cookies.StarDoubleChocChipCookie;
 import qdc.cookies.items.cookies.StarPlainCookie;
 import qdc.cookies.items.cookies.StarSugarCookie;
+import qdc.cookies.items.tools.CutterGBMan;
+import qdc.cookies.items.tools.CutterRound;
+import qdc.cookies.items.tools.CutterSquare;
+import qdc.cookies.items.tools.CutterStar;
+import qdc.cookies.items.tools.CutterXmasTree;
 import qdc.cookies.items.tools.Grinder;
 import qdc.cookies.plants.GingerBlock;
 import cpw.mods.fml.client.registry.ClientRegistry;
@@ -79,12 +83,6 @@ public class Cookies {
 	 */
 	public static HashMap<Class, Item> cookieItems = new HashMap<Class, Item>();
 	
-	public static Item cutterCircle;
-	public static Item cutterSquare;
-	public static Item cutterStar;
-	public static Item cutterGBMan;
-	public static Item cutterXmas;
-
 	public static Item sugarPowder;
 	public static Item gingerPowder;
 
@@ -177,25 +175,19 @@ public class Cookies {
 				.setCreativeTab(Cookies.cookieTab);
 		this.registerItem(ginger, "Ginger");
 
-		// Cutters
-		cutterCircle = new CutterGeneric(CookieIDs.roundCutter_actual, "cookie_cutter_circle");
-		cutterSquare = new CutterGeneric(CookieIDs.squareCutter_actual, "cookie_cutter_square");
-		cutterStar   = new CutterGeneric(CookieIDs.starCutter_actual, "cookie_cutter_star");
-		cutterGBMan  = new CutterGeneric(CookieIDs.gbmanCutter_actual, "cookie_cutter_GBMan");
-		cutterXmas   = new CutterGeneric(CookieIDs.treeCutter_actual, "xmas_tree_cutter");
-		
-		this.registerItem(cutterCircle, "Round Cookie Cutter");
-		this.registerItem(cutterSquare, "Square Cookie Cutter");
-		this.registerItem(cutterStar, "Star Cookie Cutter");
-		this.registerItem(cutterGBMan, "Gingerbread Man Cutter");
-		this.registerItem(cutterXmas, "Christmas Tree Cutter");
-
 		// Tools
 		cookieItems.put(Grinder.class, new Grinder(CookieIDs.grinder_actual).register());
+		cookieItems.put(CutterRound.class, new CutterRound(CookieIDs.roundCutter_actual).register());
+		cookieItems.put(CutterSquare.class, new CutterSquare(CookieIDs.squareCutter_actual).register());
+		cookieItems.put(CutterStar.class, new CutterStar(CookieIDs.starCutter_actual).register());
+		cookieItems.put(CutterGBMan.class, new CutterStar(CookieIDs.gbmanCutter_actual).register());
+		cookieItems.put(CutterXmasTree.class, new CutterStar(CookieIDs.treeCutter_actual).register());
+		
 		// Adding reagents
 		cookieItems.put(CookieDough.class, new CookieDough(CookieIDs.cookieDough_actual).register());
 		cookieItems.put(ChocChip.class, new ChocChip(CookieIDs.ChocChip_actual).register());
 		cookieItems.put(ChocolatePowder.class,new ChocolatePowder(CookieIDs.ChocPowder_actual).register());
+		
 		
 		// Adding Cookies!
 		cookieItems.put(RoundChocChipCookie.class, new RoundChocChipCookie(CookieIDs.roundCC_actual).register());
@@ -244,28 +236,11 @@ public class Cookies {
 		GameRegistry.addShapelessRecipe(new ItemStack(Cookies.cookieItems.get(CookieDough.class), 2),
 				Item.wheat, Item.sugar, Item.bucketMilk);
 
-		// Tools
-		GameRegistry.addRecipe(new ItemStack(Cookies.cutterCircle), " x ",
-				"xyx", " x ", 'x', Item.ingotIron, 'y', Block.wood);
-		GameRegistry.addRecipe(new ItemStack(Cookies.cutterSquare), " x ",
-				"xyx", " x ", 'x', Item.ingotGold, 'y', Block.wood);
-		GameRegistry.addRecipe(new ItemStack(Cookies.cutterStar), " x ", "xyx",
-				" x ", 'x', Item.diamond, 'y', Block.wood);
-		GameRegistry.addRecipe(new ItemStack(Cookies.cutterGBMan), " x ",
-				"xyx", " x ", 'x', Item.emerald, 'y', Block.wood);
-		GameRegistry.addRecipe(new ItemStack(Cookies.cutterXmas), " x ", "xyx",
-				" x ", 'x', new ItemStack(Item.dyePowder, 1, 4), 'y',
-				Block.wood);
-
 		// Cookies
 		GameRegistry.addShapelessRecipe(new ItemStack(Cookies.cookieItems.get(ChocChip.class), 2), // TODO
 				tempGrinder, new ItemStack(Item.dyePowder, 1, 3));
 
-		
-		
 		//GiftBox
-		
-
 		GameRegistry.addRecipe(new ItemStack(Cookies.yellowRibbon),"s  "," sy"," ys",'s',Item.silk,'y',new ItemStack(Item.dyePowder, 1, 11));
 		GameRegistry.addRecipe(new ItemStack(Cookies.giftboxPlain), "ppp","p p","ppp",'p',Item.paper);
 		GameRegistry.addShapelessRecipe(new ItemStack(Cookies.giftBox), Cookies.giftboxPlain,Cookies.yellowRibbon);
