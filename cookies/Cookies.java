@@ -7,6 +7,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.Configuration;
 import net.minecraftforge.oredict.OreDictionary;
 import qdc.cookies.giftbox.GiftBoxBlock;
 import qdc.cookies.giftbox.GiftBoxEntity;
@@ -42,6 +43,7 @@ import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -97,6 +99,12 @@ public class Cookies {
 
 	public static GBManCookie gbManCookie = new GBManCookie(1041);
 	
+	
+	@EventHandler
+	public static void preInit ( FMLPreInitializationEvent event ) {
+	ConfigHandler.init(event.getSuggestedConfigurationFile());
+	}
+	
 	@EventHandler
 	public void load(FMLInitializationEvent e) {
 		
@@ -124,6 +132,8 @@ public class Cookies {
 		// Register Guis?
 		NetworkRegistry.instance().registerGuiHandler(this, new GuiHandler());
 
+	
+		
 		// Registering Items
 		this.registerItems();
 
@@ -134,6 +144,10 @@ public class Cookies {
 		this.registerReceipes();
 
 	}
+
+
+		
+	
 
 	private void registerItems() {
 		
