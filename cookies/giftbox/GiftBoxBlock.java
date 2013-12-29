@@ -106,10 +106,11 @@ public class GiftBoxBlock extends BlockContainer {
 		//need to pull nbtdata from existing tile and write to item nbt
         NBTTagCompound par1NBTTagCompound = new NBTTagCompound();
         
-        //get and set nbt data?
-        this.tempTile.writeToNBT(par1NBTTagCompound);
-        temp.setTagCompound(par1NBTTagCompound);
-        
+        // Save filled Boxes to NBT
+        if (!this.tempTile.isEmpty()){
+        	this.tempTile.writeToNBT(par1NBTTagCompound);
+        	temp.setTagCompound(par1NBTTagCompound);
+        }
         //returns the items to be dropped
         ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
         ret.add(temp);
@@ -121,8 +122,8 @@ public class GiftBoxBlock extends BlockContainer {
     public void onBlockPlacedBy(World par1World, int x, int y, int z, EntityLivingBase par5EntityLivingBase, ItemStack par6ItemStack) {
     	//get tile at location
         GiftBoxEntity tile = (GiftBoxEntity) par1World.getBlockTileEntity(x, y, z);
-        //set item nbt data
-        if (par6ItemStack.getTagCompound() != null){
+        //set item nbt data, but 
+        if (par6ItemStack.getTagCompound() != null) {
         	tile.readFromNBT(par6ItemStack.getTagCompound());
         	tile.xCoord = x;
         	tile.yCoord = y;

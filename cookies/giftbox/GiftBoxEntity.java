@@ -1,6 +1,5 @@
 package qdc.cookies.giftbox;
 
-import net.minecraft.block.BlockSand;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
@@ -220,6 +219,19 @@ public class GiftBoxEntity extends TileEntity implements ISidedInventory {
 	public boolean canExtractItem(int i, ItemStack itemstack, int j) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	/**
+	 * Checks if all Slots are Empty.
+	 * @return true if empty.
+	 */
+	public boolean isEmpty() {
+		for (ItemStack stack : this.slots) {
+			if (stack != null && stack.stackSize > 0){
+				return false;
+			}
+		}
+		return true;
 	}
 
 }
