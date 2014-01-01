@@ -15,8 +15,8 @@ import cpw.mods.fml.common.registry.GameRegistry;
  */
 public class StarSugarCookie extends AbstractCookieItem {
 
-	public StarSugarCookie(int itemId) {
-		super(itemId);
+	public StarSugarCookie(int itemId, int i) {
+		super(itemId,i);
 	}
 
 	@Override

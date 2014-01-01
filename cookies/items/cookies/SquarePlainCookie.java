@@ -15,8 +15,8 @@ import cpw.mods.fml.common.registry.GameRegistry;
  */
 public class SquarePlainCookie extends AbstractCookieItem {
 
-	public SquarePlainCookie(int itemId) {
-		super(itemId);
+	public SquarePlainCookie(int itemId, int i) {
+		super(itemId,i);
 	}
 
 	@Override

@@ -45,7 +45,6 @@ public class Grinder extends Item {
 				'c', Cookies.cookieItems.get(CutterRound.class), 
 				'o', Block.cobblestone, 
 				's', Item.stick);
-		
 		return this;
 	}
 	

@@ -15,7 +15,8 @@ public  class CookieWorldGen implements IWorldGenerator {
                 
         	BiomeGenBase b = world.getBiomeGenForCoords((chunkX*16)+8, (chunkZ*16)+8); // *16+8 = Middle of Chunk
 
-        	if(b.biomeID == BiomeGenBase.forest.biomeID){
+        		//if(b.biomeID == BiomeGenBase.forest.biomeID){
+        	if(b.biomeName.toLowerCase().contains("forest") || b.biomeName.toLowerCase().contains("woods")){
             	   int x = chunkX*16 + random.nextInt(16);
             	   int y = 0;
             	   int z = chunkZ*16 + random.nextInt(16);

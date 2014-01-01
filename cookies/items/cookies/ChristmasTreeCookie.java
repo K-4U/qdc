@@ -17,8 +17,8 @@ import cpw.mods.fml.common.registry.GameRegistry;
  */
 public class ChristmasTreeCookie extends AbstractCookieItem {
 
-	public ChristmasTreeCookie(int itemId) {
-		super(itemId);
+	public ChristmasTreeCookie(int itemId, int i) {
+		super(itemId,i);
 	}
 
 	@Override

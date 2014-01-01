@@ -16,8 +16,8 @@ import cpw.mods.fml.common.registry.GameRegistry;
  */
 public class GBManCookie extends AbstractCookieItem {
 
-	public GBManCookie(int itemId) {
-		super(itemId, 6);
+	public GBManCookie(int itemId, int i) {
+		super(itemId, i);
 	}
 	
 	@Override

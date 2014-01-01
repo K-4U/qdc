@@ -7,6 +7,7 @@ import qdc.cookies.items.tools.CutterGBMan;
 import qdc.cookies.items.tools.CutterRound;
 import qdc.cookies.items.tools.CutterSquare;
 import qdc.cookies.items.tools.CutterStar;
+import qdc.cookies.items.tools.CutterXmasTree;
 import qdc.cookies.items.tools.Grinder;
 import cpw.mods.fml.common.ICraftingHandler;
 
@@ -72,6 +73,16 @@ public class CookieCraftingHandler implements ICraftingHandler {
 
 					ItemStack newStack2 = new ItemStack(
 							Cookies.cookieItems.get(CutterGBMan.class), 2);
+
+					craftMatrix.setInventorySlotContents(i, newStack2);
+
+				}
+				if (stack.getItem() != null
+						&& stack.getItem() == Cookies.cookieItems
+								.get(CutterXmasTree.class)) {
+
+					ItemStack newStack2 = new ItemStack(
+							Cookies.cookieItems.get(CutterXmasTree.class), 2);
 
 					craftMatrix.setInventorySlotContents(i, newStack2);
 

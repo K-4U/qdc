@@ -13,8 +13,8 @@ import cpw.mods.fml.common.registry.GameRegistry;
  */
 public class RoundSugarCookie extends AbstractCookieItem {
 
-	public RoundSugarCookie(int itemId) {
-		super(itemId);
+	public RoundSugarCookie(int itemId, int i) {
+		super(itemId,i);
 	}
 
 	@Override

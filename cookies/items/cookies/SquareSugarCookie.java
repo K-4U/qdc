@@ -15,8 +15,8 @@ import cpw.mods.fml.common.registry.GameRegistry;
  */
 public class SquareSugarCookie extends AbstractCookieItem {
 
-	public SquareSugarCookie(int itemId) {
-		super(itemId);
+	public SquareSugarCookie(int itemId, int i) {
+		super(itemId,i);
 	}
 
 	@Override
