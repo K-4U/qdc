@@ -206,7 +206,7 @@ public class GiftBoxEntity extends TileEntity implements ISidedInventory {
 	@Override
 	public int[] getAccessibleSlotsFromSide(int var1) {
 		// TODO Auto-generated method stub
-		return null;
+		return new int[4];
 	}
 
 	@Override

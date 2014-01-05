@@ -93,7 +93,7 @@ public class Cookies {
 	public static Item giftboxPlain;
 	public static Item yellowRibbon;
 	
-	public static GBManCookie gbManCookie = new GBManCookie(1041,8);
+	public static GBManCookie gbManCookie = new GBManCookie(27000,8);
 
 	public static final int guiGiftBox = 0;
 

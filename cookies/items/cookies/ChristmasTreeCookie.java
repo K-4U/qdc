@@ -34,7 +34,7 @@ public class ChristmasTreeCookie extends AbstractCookieItem {
 	@Override
 	protected void applyEffects() {
 		super.applyEffects();
-		this.setPotionEffect(Potion.wither.id, 20, 2, 1F);
+		//this.setPotionEffect(Potion.wither.id, 20, 2, 1F);
 	}
 	
 	@Override
