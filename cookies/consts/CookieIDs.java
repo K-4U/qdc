@@ -8,7 +8,7 @@ package qdc.cookies.consts;
 public class CookieIDs {
 
 	// Ginger Block
-	public static final int gingerBlock_default = 27031;
+	public static final int gingerBlock_default = 3396;
 	public static int gingerBlock_actual = 0;
 
 	// Crafting Items
@@ -34,7 +34,7 @@ public class CookieIDs {
 	public static final int ribbonYellow_default = 27008;
 	public static int ribbonYellow_actual = 0;
 
-	public static final int giftBox_default = 27009;
+	public static final int giftBox_default = 3397;
 	public static int giftBox_actual = 0;
 
 	public static final int cookieDough_default = 27010;
