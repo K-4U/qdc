@@ -10,6 +10,7 @@ import qdc.cookies.items.ChocolatePowder;
 import qdc.cookies.items.CookieDough;
 import qdc.cookies.items.GiftboxPlain;
 import qdc.cookies.items.GingerPowder;
+import qdc.cookies.items.ItemSeedFoodGinger;
 import qdc.cookies.items.RibbonYellow;
 import qdc.cookies.items.SugarPowder;
 import qdc.cookies.items.cookies.ChristmasTreeCookie;
@@ -39,8 +40,10 @@ public class ConfigHandler {
 		Configuration config = new Configuration(configFile);
 		config.load(); 
 		CookieIDs.gingerBlock_actual = config.getBlock(GingerBlock.class.getSimpleName(), CookieIDs.gingerBlock_default).getInt();
-		CookieIDs.ginger_actual = config.getItem(GingerBlock.class.getSimpleName(), CookieIDs.ginger_default).getInt();
-		
+		//CookieIDs.ginger_actual = config.getItem(Cookies.ginger.getClass(), CookieIDs.ginger_default).getInt();
+		//CookieIDs.ginger_actual = config.getItem("ginger", CookieIDs.ginger_default).getInt();
+		CookieIDs.gingerPowder_actual = config.getItem(ItemSeedFoodGinger.class.getSimpleName(), CookieIDs.ginger_default).getInt();
+
 		CookieIDs.gingerPowder_actual = config.getItem(GingerPowder.class.getSimpleName(), CookieIDs.gingerPowder_default).getInt();
 		CookieIDs.ChocChip_actual = config.getItem(ChocChip.class.getSimpleName(), CookieIDs.ChocChip_default).getInt();
 		
@@ -51,7 +54,7 @@ public class ConfigHandler {
 
 		CookieIDs.giftboxPlain_actual = config.getItem(GiftboxPlain.class.getSimpleName(), CookieIDs.giftboxPlain_default).getInt();
 		CookieIDs.ribbonYellow_actual = config.getItem(RibbonYellow.class.getSimpleName(), CookieIDs.ribbonYellow_default).getInt();
-		CookieIDs.giftBox_actual = config.getItem(GiftBoxBlock.class.getSimpleName(), CookieIDs.giftBox_default).getInt();
+		CookieIDs.giftBox_actual = config.getBlock(GiftBoxBlock.class.getSimpleName(), CookieIDs.giftBox_default).getInt();
 		
 		CookieIDs.grinder_actual = config.getItem(Grinder.class.getSimpleName(), CookieIDs.grinder_default).getInt();
 		CookieIDs.roundCutter_actual = config.getItem(CutterRound.class.getSimpleName(), CookieIDs.roundCutter_default).getInt();
