@@ -6,6 +6,11 @@ public class CommonProxy {
 		
 		
 	}
+
+	public void registerCreativeTabName() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 }

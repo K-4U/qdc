@@ -55,7 +55,7 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-@Mod(modid = Cookies.modid, name = "Cookies!", version = "Aplha 0.0.5")
+@Mod(modid = Cookies.modid, name = "Cookies!", version = "Aplha 0.0.8")
 @NetworkMod(clientSideRequired = true, serverSideRequired = true)
 /**
  * 
@@ -109,6 +109,7 @@ public class Cookies {
 		
 		// Creative Tab
 		String tabName = "cookietab";
+		
 		cookieTab = new CreativeTabs(tabName) {
 			@Override
 			@SideOnly(Side.CLIENT)
@@ -118,9 +119,9 @@ public class Cookies {
 		};
 		gbManCookie.setCreativeTab(Cookies.cookieTab); // GbMan addind afterwards to tab.. yeah cause its the icon xD
 		
-		
-		LanguageRegistry.instance().addStringLocalization(
-				cookieTab.getTranslatedTabLabel(), "Cookies!");
+		proxy.registerCreativeTabName();
+		//LanguageRegistry.instance().addStringLocalization(
+		//		cookieTab.getTranslatedTabLabel(), "Cookies!");
 
 		// register damage handler
 		GameRegistry.registerCraftingHandler(new CookieCraftingHandler());
@@ -221,12 +222,13 @@ public class Cookies {
 	private void registerTiles() {
 		// Tile Entities
 
-		// proxy.registerRenderers();
+		 proxy.registerRenderers();
 
 		GameRegistry.registerTileEntity(GiftBoxEntity.class, "giftbox");
 
-		ClientRegistry.bindTileEntitySpecialRenderer(GiftBoxEntity.class,
-				new GiftBoxRenderer());
+		
+		//ClientRegistry.bindTileEntitySpecialRenderer(GiftBoxEntity.class,
+		//		new GiftBoxRenderer());
 
 		giftBox = new GiftBoxBlock(1400, Material.wood);
 		this.registerBlock(giftBox, "Gift Box");
