@@ -25,7 +25,7 @@ public class CookieIDs {
 	public static final int ChocPowder_default = 27005;
 	public static int ChocPowder_actual = 0;
 
-	public static final int sugarPowder_default = 27002;
+	public static final int sugarPowder_default = 27007;
 	public static int sugarPowder_actual = 0;
 
 	public static final int giftboxPlain_default = 27006;

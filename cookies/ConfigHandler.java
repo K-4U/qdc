@@ -42,8 +42,11 @@ public class ConfigHandler {
 		CookieIDs.gingerBlock_actual = config.getBlock(GingerBlock.class.getSimpleName(), CookieIDs.gingerBlock_default).getInt();
 		//CookieIDs.ginger_actual = config.getItem(Cookies.ginger.getClass(), CookieIDs.ginger_default).getInt();
 		//CookieIDs.ginger_actual = config.getItem("ginger", CookieIDs.ginger_default).getInt();
-		CookieIDs.gingerPowder_actual = config.getItem(ItemSeedFoodGinger.class.getSimpleName(), CookieIDs.ginger_default).getInt();
+		//CookieIDs.gingerPowder_actual = config.getItem(ItemSeedFoodGinger.class.getSimpleName(), CookieIDs.ginger_default).getInt();
 
+		CookieIDs.ginger_actual = config.getItem(ItemSeedFoodGinger.class.getSimpleName(), CookieIDs.ginger_default).getInt();
+
+		
 		CookieIDs.gingerPowder_actual = config.getItem(GingerPowder.class.getSimpleName(), CookieIDs.gingerPowder_default).getInt();
 		CookieIDs.ChocChip_actual = config.getItem(ChocChip.class.getSimpleName(), CookieIDs.ChocChip_default).getInt();
 		

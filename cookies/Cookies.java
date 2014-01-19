@@ -55,7 +55,7 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-@Mod(modid = Cookies.modid, name = "Cookies!", version = "Aplha 0.0.8")
+@Mod(modid = Cookies.modid, name = "Cookies!", version = "Aplha 0.0.10 ")
 @NetworkMod(clientSideRequired = true, serverSideRequired = true)
 /**
  * 
@@ -161,9 +161,9 @@ public class Cookies {
 
 
 		// Register Ginger Plant
-		gingerBlock = new GingerBlock(CookieIDs.gingerBlock_actual).setUnlocalizedName("ginger");
-		this.registerBlock(gingerBlock, "Ginger");
-		ginger = new ItemSeedFoodGinger(CookieIDs.ginger_actual, 4, 0.3F, CookieIDs.ginger_actual,
+		gingerBlock = new GingerBlock(CookieIDs.gingerBlock_actual).setUnlocalizedName("gingerPlant");
+		this.registerBlock(gingerBlock, "Ginger Plant");
+		ginger = new ItemSeedFoodGinger(CookieIDs.ginger_actual, 4, 0.3F, CookieIDs.gingerBlock_actual,
 				Block.tilledField.blockID).setUnlocalizedName("cookies:ginger")
 				.setCreativeTab(Cookies.cookieTab);
 		this.registerItem(ginger, "Ginger");
