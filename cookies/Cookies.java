@@ -41,6 +41,10 @@ import qdc.cookies.items.tools.CutterStar;
 import qdc.cookies.items.tools.CutterXmasTree;
 import qdc.cookies.items.tools.Grinder;
 import qdc.cookies.plants.GingerBlock;
+import qdc.cookies.trees.OrangeLeaves;
+import qdc.cookies.trees.OrangeLog;
+import qdc.cookies.trees.OrangeSappling;
+import qdc.cookies.worldgen.OrangeTreeWorldGeneration;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -77,6 +81,7 @@ public class Cookies {
 	public static CreativeTabs cookieTab;
 
 	public static CookieWorldGen worldGen = new CookieWorldGen();
+	public static OrangeTreeWorldGeneration orangeWorldGen = new OrangeTreeWorldGeneration(false);
 
 	/**
 	 * Map with all Registered items.
@@ -97,6 +102,9 @@ public class Cookies {
 
 	public static final int guiGiftBox = 0;
 
+	public static Block orangeLeaves;
+	public static Block orangeLog;
+	public static Block orangeSappling;
 	
 	
 	@EventHandler
@@ -128,6 +136,7 @@ public class Cookies {
 
 		// Register Worldgen
 		GameRegistry.registerWorldGenerator(worldGen);
+		GameRegistry.registerWorldGenerator(orangeWorldGen);
 
 		// Register Guis?
 		NetworkRegistry.instance().registerGuiHandler(this, new GuiHandler());
@@ -168,9 +177,14 @@ public class Cookies {
 				.setCreativeTab(Cookies.cookieTab);
 		this.registerItem(ginger, "Ginger");
 		
+		orangeLeaves = new OrangeLeaves(CookieIDs.orangeLeaves_actual, Material.leaves);
+		registerBlock(orangeLeaves, "Orange Leaves");
 		
+		orangeLog = new OrangeLog(CookieIDs.orangeLog_actual, Material.wood);
+		registerBlock(orangeLog, "Orange Wood");
 
-
+		orangeSappling = new OrangeSappling(CookieIDs.orangeSappling_actual, 0);
+		registerBlock(orangeSappling, "Orange Sappling");
 		// Tools
 		
 
@@ -217,6 +231,10 @@ public class Cookies {
 		cookieItems.put(StarPlainCookie.class, new StarPlainCookie(CookieIDs.starPlain_actual,4).register());
 		cookieItems.put(ChristmasTreeCookie.class, new ChristmasTreeCookie(CookieIDs.treeCookie_actual,20).register());
 		cookieItems.put(GBManCookie.class, gbManCookie.register());
+		
+		
+		
+
 	}
 
 	private void registerTiles() {

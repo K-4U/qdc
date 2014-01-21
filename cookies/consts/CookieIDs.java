@@ -7,10 +7,19 @@ package qdc.cookies.consts;
  */
 public class CookieIDs {
 
-	// Ginger Block
+	//  Blocks
 	public static final int gingerBlock_default = 3396;
 	public static int gingerBlock_actual = 0;
+	
+	public static final int orangeLeaves_default = 3397;
+	public static int orangeLeaves_actual = 0;
 
+	public static final int orangeLog_default = 3398;
+	public static int orangeLog_actual = 0;
+	
+	public static final int orangeSappling_default = 3399;
+	public static int orangeSappling_actual = 0;
+	
 	// Crafting Items
 
 	public static final int ginger_default = 27002;

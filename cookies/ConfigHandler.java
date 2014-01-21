@@ -34,16 +34,20 @@ import qdc.cookies.items.tools.CutterStar;
 import qdc.cookies.items.tools.CutterXmasTree;
 import qdc.cookies.items.tools.Grinder;
 import qdc.cookies.plants.GingerBlock;
+import qdc.cookies.trees.OrangeLeaves;
+import qdc.cookies.trees.OrangeLog;
+import qdc.cookies.trees.OrangeSappling;
 
 public class ConfigHandler {
 	public static void init(File configFile) {
 		Configuration config = new Configuration(configFile);
 		config.load(); 
 		CookieIDs.gingerBlock_actual = config.getBlock(GingerBlock.class.getSimpleName(), CookieIDs.gingerBlock_default).getInt();
-		//CookieIDs.ginger_actual = config.getItem(Cookies.ginger.getClass(), CookieIDs.ginger_default).getInt();
-		//CookieIDs.ginger_actual = config.getItem("ginger", CookieIDs.ginger_default).getInt();
-		//CookieIDs.gingerPowder_actual = config.getItem(ItemSeedFoodGinger.class.getSimpleName(), CookieIDs.ginger_default).getInt();
 
+		CookieIDs.orangeLeaves_actual = config.getBlock(OrangeLeaves.class.getSimpleName(), CookieIDs.orangeLeaves_default).getInt();
+		CookieIDs.orangeLog_actual = config.getBlock(OrangeLog.class.getSimpleName(), CookieIDs.orangeLog_default).getInt();
+		CookieIDs.orangeSappling_actual = config.getBlock(OrangeSappling.class.getSimpleName(), CookieIDs.orangeSappling_default).getInt();
+		
 		CookieIDs.ginger_actual = config.getItem(ItemSeedFoodGinger.class.getSimpleName(), CookieIDs.ginger_default).getInt();
 
 		
