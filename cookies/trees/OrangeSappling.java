@@ -84,9 +84,11 @@ public class OrangeSappling extends BlockFlower {
             }
             else {
                     object = new OrangeTreeWorldGeneration(true);
-                    if(par5Random.nextInt(10) == 0) {
-                            object = new WorldGenBigTree(true);
-                    }
+                    
+                    //can add check for multiple tree types here
+                  //  if(par5Random.nextInt(10) == 0) {
+                  //          object = new WorldGenBigTree(true);
+                   // }
             }
             if(flag) {
                     par1World.setBlock(par2 + i1, par3, par4 + j1, 0, 0, 4);

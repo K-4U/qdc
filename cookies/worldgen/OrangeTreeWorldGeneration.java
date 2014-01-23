@@ -5,8 +5,10 @@ import java.util.Random;
 import qdc.cookies.Cookies;
 import qdc.cookies.trees.OrangeSappling;
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.util.Direction;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.common.ForgeDirection;
@@ -35,12 +37,32 @@ private final int metaLeaves;
 	@Override
 	public void generate(Random random, int chunkX, int chunkZ, World world,
 			IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
-		for(int i = 0; i < 50 ; i++){
-			int xCoord = chunkX + random.nextInt(16);
-			int yCoord = random.nextInt(16);
-			int zCoord = chunkZ + random.nextInt(16);
+		
+		
+		BiomeGenBase b = world.getBiomeGenForCoords((chunkX*16)+8, (chunkZ*16)+8);
+		
+		if(b.biomeName.toLowerCase().contains("plains")){
+					int xCoord = chunkX*16 + random.nextInt(16);
+			int yCoord  = 0;
+			int zCoord = chunkZ*16 + random.nextInt(16);
+			for (int i=0; i<150; i++){
+
 			
-			new OrangeTreeWorldGeneration(false,9,0,0,false).generate(world, random, xCoord, yCoord, zCoord);
+			int bID = world.getBlockId(xCoord, i, zCoord);
+			 if(bID == Block.grass.blockID){
+    			   world.setBlock(xCoord, i+1, zCoord, Cookies.orangeSappling.blockID);
+    			   //not sure about this, maybe should get block?
+    			   // OrangeSappling OSapp = new OrangeSappling(0,0);
+    			  // OSapp.growTree(world, xCoord, i+1, zCoord, random);
+    			   break;
+    		   }
+			 
+			 
+			
+			
+			
+			//new OrangeTreeWorldGeneration(false,9,0,0,false).generate(world, random, xCoord, yCoord, zCoord);
+		}
 		}
 	}
 	
@@ -139,6 +161,7 @@ private final int metaLeaves;
      
                                     if (block == null || block.canBeReplacedByLeaves(par1World, j2, j1, l2))
                                     {
+                                    	//maybe put here a random chance of fruited leaves or plain?
                                         this.setBlockAndMetadata(par1World, j2, j1, l2, Cookies.orangeLeaves.blockID, this.metaLeaves);
                                     }
                                 }
